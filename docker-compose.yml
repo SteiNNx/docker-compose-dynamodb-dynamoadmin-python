@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    environment:
+      AWS_ACCESS_KEY_ID: "fakeMyKeyId"
+      AWS_SECRET_ACCESS_KEY: "fakeSecretAccessKey"
+      DYNAMODB_ENDPOINT: http://host.docker.internal:8000
