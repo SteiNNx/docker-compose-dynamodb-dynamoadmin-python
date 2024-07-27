@@ -1,5 +1,3 @@
-
-
 # Docker DynamoDB, DynamoDB Admin, Python
 
 Este proyecto configura un entorno local que incluye una base de datos DynamoDB, una interfaz de administración web para DynamoDB y un contenedor Python preparado para ejecutar scripts en DynamoDB.
@@ -64,8 +62,8 @@ Para levantar el entorno, sigue estos pasos:
 1. **Clonar el repositorio**:
 
    ```bash
-   git clone <url-del-repositorio>
-   cd <nombre-del-directorio>
+   git clone https://github.com/SteiNNx/docker-compose-dynamodb-dynamoadmin-python.git
+   cd docker-compose-dynamodb-dynamoadmin-python
    ```
 
 2. **Ejecutar el script de configuración**:
