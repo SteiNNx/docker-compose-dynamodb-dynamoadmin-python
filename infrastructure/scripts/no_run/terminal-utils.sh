@@ -62,14 +62,22 @@ breakline() {
 # Función para cargar variables de entorno desde el archivo .env
 source_env_vars() {
     local env_file="$1"
+    
     if [ -f "$env_file" ]; then
+        # Cargar variables de entorno desde el archivo
         export $(grep -v '^#' "$env_file" | xargs)
-        success "Archivo de variables de entorno encontrado"
+        
+        # Mensaje de éxito
+        success "Archivo de variables de entorno cargado correctamente: $env_file ✔️"
+        breakline
+        success "---------------------------------------------------------------------"
         breakline
     else
-        critical_error "Archivo de variables de entorno no encontrado: $env_file"
+        # Mensaje de error crítico
+        critical_error "❌  Archivo de variables de entorno no encontrado: $env_file. Asegúrate de que el archivo exista y esté ubicado en la ruta especificada."
     fi
 }
+
 
 # Función para registrar un mensaje en un archivo de registro
 log_file() {
@@ -98,11 +106,15 @@ validate_docker() {
             ;;
     esac
 }
-
 # Función para validar que docker-compose está instalado
 validate_docker_compose() {
     if ! command -v docker-compose &>/dev/null; then
-        critical_error "docker-compose no está instalado. Por favor, instálalo antes de continuar."
+        # Mensaje de error crítico si docker-compose no está instalado
+        critical_error "'docker-compose' no está instalado. Por favor, instálalo siguiendo las instrucciones en la [documentación oficial](https://docs.docker.com/compose/install/). ❌ "
+    else
+        # Mensaje de éxito si docker-compose está instalado
+        success "'docker-compose' está instalado. ✔️"
+        breakline
     fi
 }
 
@@ -110,10 +122,15 @@ validate_docker_compose() {
 check_command_version() {
     local command=$1
     local label=$2
+    
     if command -v $command &>/dev/null; then
+        # Obtener la versión del comando
         local version=$($command --version)
-        info "$label: $version"
+        
+        # Mensaje informativo con la versión
+        echo "ℹ️ $label: $version"
     else
-        warning "$label no está instalado."
+        # Mensaje de advertencia si el comando no está instalado
+        echo "⚠️ $label no está instalado. Por favor, instálalo para asegurar el correcto funcionamiento del sistema."
     fi
 }

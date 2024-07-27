@@ -1,12 +1,20 @@
+# Usa la imagen base de Python 3.9
 FROM python:3.9-slim
 
+# Establece el directorio de trabajo en el contenedor
 WORKDIR /usr/src/app
 
-COPY src/requirements.txt ./
+# Copia el resto del código fuente al contenedor
+COPY .env ./
+
+# Copia el resto del código fuente al contenedor
+COPY src/ ./
+
+# Instala las dependencias desde requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
-
+# Expone el puerto 5000
 EXPOSE 5000
 
-CMD ["python", "./app.py"]
+# Define el comando por defecto para ejecutar la aplicación
+CMD ["python", "app.py"]

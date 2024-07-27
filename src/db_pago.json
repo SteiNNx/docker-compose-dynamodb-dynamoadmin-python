@@ -1,0 +1,542 @@
+[
+    {
+        "UTCTimeFormat": "2024-07-24:23:24:55.442",
+        "additionalInfo": "\u0026 0000700364! B200158 7FF900008000000000009E534473D576BD730000000028100000000000002000001015215224072400E6A9F72B000706010A03A0200000000000000000000000000000000000000000000000000000! B400020 071510013F000015080 ! B300080 CF000W104940E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400012 000000020233! S400020 0100079F6E0420700000! P700002 C ",
+        "attendant": "0",
+        "currencyCode": "152",
+        "datosComercio": {
+            "MCC": "5499",
+            "ciudadComercio": "Valdivia",
+            "clientAppOrg": "Registro venta masiva",
+            "comunaComercio": "Valdivia",
+            "dv": "1",
+            "idComercio": "876065401676",
+            "paisComercio": "Chile",
+            "rut": "87606540"
+        },
+        "datosPago": {
+            "cuotas": 0,
+            "iva": 408,
+            "monto": 2810,
+            "monto_s_prop": 2555,
+            "neto": 2147,
+            "propina": 255,
+            "tipoComprobante": "Boleta afecta",
+            "tipoCuota": "0",
+            "totalExento": 0,
+            "vuelto": 0
+        },
+        "datosSucursal": {
+            "comunaSucursal": "Valdivia",
+            "direccionSucursal": "Independencia   455",
+            "idSucursal": "a3Z8L000000HJPNUA4",
+            "idSucursalOP": "876065400705",
+            "nombreSucursal": "pruebavmasiva47@yopmail.com",
+            "paisSucursal": "Chile",
+            "regionSucursal": "Los Rios"
+        },
+        "datosTarjeta": {
+            "bin": "496617",
+            "abreviatura": "VI",
+            "marca": "VISA",
+            "cardEntryMode": "071",
+            "cardSeqNumb": "01",
+            "tipo": "C",
+            "conditionCode": "00",
+            "fourDigits": "1843",
+            "invoiceData": "55555"
+        },
+        "idPago": "18be62f8-36d2-46a9-9e30-cc7c1f220264",
+        "idTerminal": "n005cs23",
+        "infoAdicional": {
+            "canal": "RED_MOVIL",
+            "card_entry": "CTLS",
+            "portador": "ENTEL",
+            "serial_number": "N860W104940",
+            "sim_id": "89560100001257725568",
+            "version_app": "3.0.3.dev",
+            "bins": {
+                "date_file": "12-01-2023",
+                "date_update": "12-01-2023",
+                "record_count": 1530,
+                "version": 4
+            },
+            "emv_aid": {
+                "date_file": "01-01-2000",
+                "date_update": "01-01-2000",
+                "version": 0
+            },
+            "emv_capk": {
+                "date_file": "01-01-2000",
+                "date_update": "01-01-2000",
+                "version": 0
+            },
+            "errors": {
+                "date_file": "15-02-2023",
+                "date_update": "15-02-2023",
+                "version": 1
+            },
+            "propinaActiva": true
+        },
+        "localDate": "0724",
+        "localTime": "192455",
+        "localTimeFormat": "2024-07-24:19:24:55.437",
+        "millisecDate": "1721863495442",
+        "ocAlianza": "NA",
+        "rrn": "374896649156",
+        "secureFields": {
+            "track2": "F51A5F110A09BAD29B77A9BBAF055EB4535F45EF86C043DDACCC9CF959B9B42985345DE6CF4F7D8A",
+            "track2ksn": "FFFFFF98282142000251"
+        }
+    },
+    {
+        "UTCTimeFormat": "2024-07-24:23:25:12.123",
+        "additionalInfo": "\u0026 0000700365! B200159 7FF900008000000000009E534473D576BD731000000028100000000000002000001015215224072400E6A9F72B000706010A03A0200000000000000000000000000000000000000000000000000000! B400021 071510013F000015080 ! B300081 CF000W104941E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400013 000000020234! S400021 0100079F6E0420700001! P700003 C ",
+        "attendant": "1",
+        "currencyCode": "152",
+        "datosComercio": {
+            "MCC": "5499",
+            "ciudadComercio": "Valdivia",
+            "clientAppOrg": "Registro venta masiva",
+            "comunaComercio": "Valdivia",
+            "dv": "1",
+            "idComercio": "876065401677",
+            "paisComercio": "Chile",
+            "rut": "87606541"
+        },
+        "datosPago": {
+            "cuotas": 1,
+            "iva": 410,
+            "monto": 2820,
+            "monto_s_prop": 2560,
+            "neto": 2150,
+            "propina": 260,
+            "tipoComprobante": "Boleta afecta",
+            "tipoCuota": "1",
+            "totalExento": 0,
+            "vuelto": 10
+        },
+        "datosSucursal": {
+            "comunaSucursal": "Valdivia",
+            "direccionSucursal": "Independencia   456",
+            "idSucursal": "a3Z8L000000HJPNUA5",
+            "idSucursalOP": "876065400706",
+            "nombreSucursal": "pruebavmasiva48@yopmail.com",
+            "paisSucursal": "Chile",
+            "regionSucursal": "Los Rios"
+        },
+        "datosTarjeta": {
+            "bin": "496618",
+            "abreviatura": "VI",
+            "marca": "VISA",
+            "cardEntryMode": "072",
+            "cardSeqNumb": "02",
+            "tipo": "D",
+            "conditionCode": "01",
+            "fourDigits": "1844",
+            "invoiceData": "55556"
+        },
+        "idPago": "18be62f8-36d2-46a9-9e30-cc7c1f220265",
+        "idTerminal": "n005cs24",
+        "infoAdicional": {
+            "canal": "RED_MOVIL",
+            "card_entry": "CTLS",
+            "portador": "ENTEL",
+            "serial_number": "N860W104941",
+            "sim_id": "89560100001257725569",
+            "version_app": "3.0.4.dev",
+            "bins": {
+                "date_file": "13-01-2023",
+                "date_update": "13-01-2023",
+                "record_count": 1531,
+                "version": 4
+            },
+            "emv_aid": {
+                "date_file": "02-01-2000",
+                "date_update": "02-01-2000",
+                "version": 1
+            },
+            "emv_capk": {
+                "date_file": "02-01-2000",
+                "date_update": "02-01-2000",
+                "version": 1
+            },
+            "errors": {
+                "date_file": "16-02-2023",
+                "date_update": "16-02-2023",
+                "version": 2
+            },
+            "propinaActiva": true
+        },
+        "localDate": "0724",
+        "localTime": "192512",
+        "localTimeFormat": "2024-07-24:19:25:12.123",
+        "millisecDate": "1721863712123",
+        "ocAlianza": "NA",
+        "rrn": "374896649157",
+        "secureFields": {
+            "track2": "F51A5F110A09BAD29B77A9BBAF055EB4535F45EF86C043DDACCC9CF959B9B42985345DE6CF4F7D8B",
+            "track2ksn": "FFFFFF98282142000252"
+        }
+    },
+    {
+        "UTCTimeFormat": "2024-07-24:23:25:29.654",
+        "additionalInfo": "\u0026 0000700366! B200160 7FF900008000000000009E534473D576BD732000000028100000000000002000001015215224072400E6A9F72B000706010A03A0200000000000000000000000000000000000000000000000000000! B400022 071510013F000015080 ! B300082 CF000W104942E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400014 000000020235! S400022 0100079F6E0420700002! P700004 C ",
+        "attendant": "2",
+        "currencyCode": "152",
+        "datosComercio": {
+            "MCC": "5499",
+            "ciudadComercio": "Valdivia",
+            "clientAppOrg": "Registro venta masiva",
+            "comunaComercio": "Valdivia",
+            "dv": "1",
+            "idComercio": "876065401678",
+            "paisComercio": "Chile",
+            "rut": "87606542"
+        },
+        "datosPago": {
+            "cuotas": 2,
+            "iva": 412,
+            "monto": 2830,
+            "monto_s_prop": 2565,
+            "neto": 2155,
+            "propina": 270,
+            "tipoComprobante": "Boleta afecta",
+            "tipoCuota": "2",
+            "totalExento": 0,
+            "vuelto": 20
+        },
+        "datosSucursal": {
+            "comunaSucursal": "Valdivia",
+            "direccionSucursal": "Independencia   457",
+            "idSucursal": "a3Z8L000000HJPNUA6",
+            "idSucursalOP": "876065400707",
+            "nombreSucursal": "pruebavmasiva49@yopmail.com",
+            "paisSucursal": "Chile",
+            "regionSucursal": "Los Rios"
+        },
+        "datosTarjeta": {
+            "bin": "496619",
+            "abreviatura": "VI",
+            "marca": "VISA",
+            "cardEntryMode": "073",
+            "cardSeqNumb": "03",
+            "tipo": "E",
+            "conditionCode": "02",
+            "fourDigits": "1845",
+            "invoiceData": "55557"
+        },
+        "idPago": "18be62f8-36d2-46a9-9e30-cc7c1f220266",
+        "idTerminal": "n005cs25",
+        "infoAdicional": {
+            "canal": "RED_MOVIL",
+            "card_entry": "CTLS",
+            "portador": "ENTEL",
+            "serial_number": "N860W104942",
+            "sim_id": "89560100001257725570",
+            "version_app": "3.0.5.dev",
+            "bins": {
+                "date_file": "14-01-2023",
+                "date_update": "14-01-2023",
+                "record_count": 1532,
+                "version": 5
+            },
+            "emv_aid": {
+                "date_file": "03-01-2000",
+                "date_update": "03-01-2000",
+                "version": 1
+            },
+            "emv_capk": {
+                "date_file": "03-01-2000",
+                "date_update": "03-01-2000",
+                "version": 1
+            },
+            "errors": {
+                "date_file": "17-02-2023",
+                "date_update": "17-02-2023",
+                "version": 2
+            },
+            "propinaActiva": false
+        },
+        "localDate": "0724",
+        "localTime": "192529",
+        "localTimeFormat": "2024-07-24:19:25:29.654",
+        "millisecDate": "1721863729654",
+        "ocAlianza": "NA",
+        "rrn": "374896649158",
+        "secureFields": {
+            "track2": "F51A5F110A09BAD29B77A9BBAF055EB4535F45EF86C043DDACCC9CF959B9B42985345DE6CF4F7D8C",
+            "track2ksn": "FFFFFF98282142000253"
+        }
+    },
+    {
+        "UTCTimeFormat": "2024-07-24:23:25:45.789",
+        "additionalInfo": "\u0026 0000700367! B200161 7FF900008000000000009E534473D576BD733000000028100000000000002000001015215224072400E6A9F72B000706010A03A0200000000000000000000000000000000000000000000000000000! B400023 071510013F000015080 ! B300083 CF000W104943E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400015 000000020236! S400023 0100079F6E0420700003! P700005 C ",
+        "attendant": "3",
+        "currencyCode": "152",
+        "datosComercio": {
+            "MCC": "5499",
+            "ciudadComercio": "Valdivia",
+            "clientAppOrg": "Registro venta masiva",
+            "comunaComercio": "Valdivia",
+            "dv": "1",
+            "idComercio": "876065401679",
+            "paisComercio": "Chile",
+            "rut": "87606543"
+        },
+        "datosPago": {
+            "cuotas": 3,
+            "iva": 415,
+            "monto": 2840,
+            "monto_s_prop": 2570,
+            "neto": 2160,
+            "propina": 275,
+            "tipoComprobante": "Boleta afecta",
+            "tipoCuota": "3",
+            "totalExento": 0,
+            "vuelto": 30
+        },
+        "datosSucursal": {
+            "comunaSucursal": "Valdivia",
+            "direccionSucursal": "Independencia   458",
+            "idSucursal": "a3Z8L000000HJPNUA7",
+            "idSucursalOP": "876065400708",
+            "nombreSucursal": "pruebavmasiva50@yopmail.com",
+            "paisSucursal": "Chile",
+            "regionSucursal": "Los Rios"
+        },
+        "datosTarjeta": {
+            "bin": "496620",
+            "abreviatura": "VI",
+            "marca": "VISA",
+            "cardEntryMode": "074",
+            "cardSeqNumb": "04",
+            "tipo": "F",
+            "conditionCode": "03",
+            "fourDigits": "1846",
+            "invoiceData": "55558"
+        },
+        "idPago": "18be62f8-36d2-46a9-9e30-cc7c1f220267",
+        "idTerminal": "n005cs26",
+        "infoAdicional": {
+            "canal": "RED_MOVIL",
+            "card_entry": "CTLS",
+            "portador": "ENTEL",
+            "serial_number": "N860W104943",
+            "sim_id": "89560100001257725571",
+            "version_app": "3.0.6.dev",
+            "bins": {
+                "date_file": "15-01-2023",
+                "date_update": "15-01-2023",
+                "record_count": 1533,
+                "version": 6
+            },
+            "emv_aid": {
+                "date_file": "04-01-2000",
+                "date_update": "04-01-2000",
+                "version": 1
+            },
+            "emv_capk": {
+                "date_file": "04-01-2000",
+                "date_update": "04-01-2000",
+                "version": 1
+            },
+            "errors": {
+                "date_file": "18-02-2023",
+                "date_update": "18-02-2023",
+                "version": 3
+            },
+            "propinaActiva": false
+        },
+        "localDate": "0724",
+        "localTime": "192545",
+        "localTimeFormat": "2024-07-24:19:25:45.789",
+        "millisecDate": "1721863745789",
+        "ocAlianza": "NA",
+        "rrn": "374896649159",
+        "secureFields": {
+            "track2": "F51A5F110A09BAD29B77A9BBAF055EB4535F45EF86C043DDACCC9CF959B9B42985345DE6CF4F7D8D",
+            "track2ksn": "FFFFFF98282142000254"
+        }
+    },
+    {
+        "UTCTimeFormat": "2024-07-24:23:26:01.923",
+        "additionalInfo": "\u0026 0000700368! B200162 7FF900008000000000009E534473D576BD734000000028100000000000002000001015215224072400E6A9F72B000706010A03A0200000000000000000000000000000000000000000000000000000! B400024 071510013F000015080 ! B300084 CF000W104944E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400016 000000020237! S400024 0100079F6E0420700004! P700006 C ",
+        "attendant": "4",
+        "currencyCode": "152",
+        "datosComercio": {
+            "MCC": "5499",
+            "ciudadComercio": "Valdivia",
+            "clientAppOrg": "Registro venta masiva",
+            "comunaComercio": "Valdivia",
+            "dv": "1",
+            "idComercio": "876065401680",
+            "paisComercio": "Chile",
+            "rut": "87606544"
+        },
+        "datosPago": {
+            "cuotas": 4,
+            "iva": 418,
+            "monto": 2850,
+            "monto_s_prop": 2580,
+            "neto": 2165,
+            "propina": 280,
+            "tipoComprobante": "Boleta afecta",
+            "tipoCuota": "4",
+            "totalExento": 0,
+            "vuelto": 40
+        },
+        "datosSucursal": {
+            "comunaSucursal": "Valdivia",
+            "direccionSucursal": "Independencia   459",
+            "idSucursal": "a3Z8L000000HJPNUA8",
+            "idSucursalOP": "876065400709",
+            "nombreSucursal": "pruebavmasiva51@yopmail.com",
+            "paisSucursal": "Chile",
+            "regionSucursal": "Los Rios"
+        },
+        "datosTarjeta": {
+            "bin": "496621",
+            "abreviatura": "VI",
+            "marca": "VISA",
+            "cardEntryMode": "075",
+            "cardSeqNumb": "05",
+            "tipo": "G",
+            "conditionCode": "04",
+            "fourDigits": "1847",
+            "invoiceData": "55559"
+        },
+        "idPago": "18be62f8-36d2-46a9-9e30-cc7c1f220268",
+        "idTerminal": "n005cs27",
+        "infoAdicional": {
+            "canal": "RED_MOVIL",
+            "card_entry": "CTLS",
+            "portador": "ENTEL",
+            "serial_number": "N860W104944",
+            "sim_id": "89560100001257725572",
+            "version_app": "3.0.7.dev",
+            "bins": {
+                "date_file": "16-01-2023",
+                "date_update": "16-01-2023",
+                "record_count": 1534,
+                "version": 7
+            },
+            "emv_aid": {
+                "date_file": "05-01-2000",
+                "date_update": "05-01-2000",
+                "version": 1
+            },
+            "emv_capk": {
+                "date_file": "05-01-2000",
+                "date_update": "05-01-2000",
+                "version": 1
+            },
+            "errors": {
+                "date_file": "19-02-2023",
+                "date_update": "19-02-2023",
+                "version": 4
+            },
+            "propinaActiva": true
+        },
+        "localDate": "0724",
+        "localTime": "192601",
+        "localTimeFormat": "2024-07-24:19:26:01.923",
+        "millisecDate": "1721863761923",
+        "ocAlianza": "NA",
+        "rrn": "374896649160",
+        "secureFields": {
+            "track2": "F51A5F110A09BAD29B77A9BBAF055EB4535F45EF86C043DDACCC9CF959B9B42985345DE6CF4F7D8E",
+            "track2ksn": "FFFFFF98282142000255"
+        }
+    },
+    {
+        "UTCTimeFormat": "2024-07-24:23:26:17.234",
+        "additionalInfo": "\u0026 0000700369! B200163 7FF900008000000000009E534473D576BD735000000028100000000000002000001015215224072400E6A9F72B000706010A03A0200000000000000000000000000000000000000000000000000000! B400025 071510013F000015080 ! B300085 CF000W104945E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400017 000000020238! S400025 0100079F6E0420700005! P700007 C ",
+        "attendant": "5",
+        "currencyCode": "152",
+        "datosComercio": {
+            "MCC": "5499",
+            "ciudadComercio": "Valdivia",
+            "clientAppOrg": "Registro venta masiva",
+            "comunaComercio": "Valdivia",
+            "dv": "1",
+            "idComercio": "876065401681",
+            "paisComercio": "Chile",
+            "rut": "87606545"
+        },
+        "datosPago": {
+            "cuotas": 5,
+            "iva": 420,
+            "monto": 2860,
+            "monto_s_prop": 2585,
+            "neto": 2170,
+            "propina": 290,
+            "tipoComprobante": "Boleta afecta",
+            "tipoCuota": "5",
+            "totalExento": 0,
+            "vuelto": 50
+        },
+        "datosSucursal": {
+            "comunaSucursal": "Valdivia",
+            "direccionSucursal": "Independencia   460",
+            "idSucursal": "a3Z8L000000HJPNUA9",
+            "idSucursalOP": "876065400710",
+            "nombreSucursal": "pruebavmasiva52@yopmail.com",
+            "paisSucursal": "Chile",
+            "regionSucursal": "Los Rios"
+        },
+        "datosTarjeta": {
+            "bin": "496622",
+            "abreviatura": "VI",
+            "marca": "VISA",
+            "cardEntryMode": "076",
+            "cardSeqNumb": "06",
+            "tipo": "H",
+            "conditionCode": "05",
+            "fourDigits": "1848",
+            "invoiceData": "55560"
+        },
+        "idPago": "18be62f8-36d2-46a9-9e30-cc7c1f220269",
+        "idTerminal": "n005cs28",
+        "infoAdicional": {
+            "canal": "RED_MOVIL",
+            "card_entry": "CTLS",
+            "portador": "ENTEL",
+            "serial_number": "N860W104945",
+            "sim_id": "89560100001257725573",
+            "version_app": "3.0.8.dev",
+            "bins": {
+                "date_file": "17-01-2023",
+                "date_update": "17-01-2023",
+                "record_count": 1535,
+                "version": 8
+            },
+            "emv_aid": {
+                "date_file": "06-01-2000",
+                "date_update": "06-01-2000",
+                "version": 1
+            },
+            "emv_capk": {
+                "date_file": "06-01-2000",
+                "date_update": "06-01-2000",
+                "version": 1
+            },
+            "errors": {
+                "date_file": "20-02-2023",
+                "date_update": "20-02-2023",
+                "version": 5
+            },
+            "propinaActiva": true
+        },
+        "localDate": "0724",
+        "localTime": "192617",
+        "localTimeFormat": "2024-07-24:19:26:17.234",
+        "millisecDate": "1721863777234",
+        "ocAlianza": "NA",
+        "rrn": "374896649161",
+        "secureFields": {
+            "track2": "F51A5F110A09BAD29B77A9BBAF055EB4535F45EF86C043DDACCC9CF959B9B42985345DE6CF4F7D8E",
+            "track2ksn": "FFFFFF98282142000256"
+        }
+    }
+]
