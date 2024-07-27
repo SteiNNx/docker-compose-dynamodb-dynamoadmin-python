@@ -1,3 +1,5 @@
+
+
 # Docker DynamoDB, DynamoDB Admin, Python
 
 Este proyecto configura un entorno local que incluye una base de datos DynamoDB, una interfaz de administración web para DynamoDB y un contenedor Python preparado para ejecutar scripts en DynamoDB.
@@ -5,6 +7,7 @@ Este proyecto configura un entorno local que incluye una base de datos DynamoDB,
 ## Introducción
 
 Este proyecto proporciona un entorno de desarrollo local para trabajar con DynamoDB sin necesidad de conectarse a AWS. Incluye:
+
 - **DynamoDB Local**: Un servidor DynamoDB que se ejecuta en `localhost:8000`.
 - **DynamoDB Admin UI**: Una interfaz gráfica para administrar DynamoDB disponible en `localhost:8001`.
 - **Contenedor Python**: Un entorno Python para ejecutar scripts que interactúan con DynamoDB, disponible en `localhost:5000`.
@@ -30,7 +33,7 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
 El proyecto está organizado de la siguiente manera:
 
-``` bash
+```bash
 project-root/
 │
 ├── .env                       # Variables de entorno para configurar Docker y la aplicación
@@ -66,6 +69,7 @@ Para levantar el entorno, sigue estos pasos:
    ```
 
 2. **Ejecutar el script de configuración**:
+
    Utiliza el siguiente comando para iniciar el entorno de Docker:
 
    ```bash
@@ -73,6 +77,7 @@ Para levantar el entorno, sigue estos pasos:
    ```
 
    Este script levantará los siguientes contenedores:
+
    - **DynamoDB Local** en `localhost:8000`
    - **DynamoDB Admin UI** en `localhost:8001`
    - **Contenedor Python** en `localhost:5000`
@@ -82,8 +87,31 @@ Para levantar el entorno, sigue estos pasos:
 Una vez que los contenedores estén en funcionamiento, puedes ejecutar scripts Python en el contenedor Python. Para hacerlo:
 
 1. **Accede al contenedor Python**:
+
    Ejecuta el siguiente comando para abrir una terminal bash dentro del contenedor:
 
-```bash
-docker-compose exec app bash python hello_world.py
-```
+   ```bash
+   docker-compose exec app bash
+   ```
+
+2. **Ejecuta Script**:
+
+   Ejecuta el script de ejemplo dentro del contenedor:
+
+   ```bash
+   python hello_world.py
+   ```
+
+   Esto mostrará:
+
+   ```plaintext
+   Hello, Docker World!
+   ```
+
+3. **Para salir**:
+
+   Escribe `exit` para salir del contenedor:
+
+   ```bash
+   exit
+   ```
