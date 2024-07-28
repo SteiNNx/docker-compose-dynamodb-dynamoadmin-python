@@ -24,7 +24,7 @@ jobs:
 
     - name: Execute the suite-dynamodb-local.sh script
       run: |
-        sh /scripts/suite-dynamodb-local.sh
+        sh infrastructure/scripts/suite-dynamodb-local.sh
 
     - name: Verify DynamoDB Local and Admin UI
       run: |
