@@ -4,18 +4,27 @@
 # Incluir funciones de utilidad
 source infrastructure/scripts/no_run/terminal-utils.sh
 
-# Inserta Datos a la DB Dynamo
-seed_dynamo_db(){
+# Función para inicializar el contenedor de Python
+init_python_container() {
     warning "Inicializando Python Container"
     breakline
+    docker-compose down --volumes all --remove-orphans
     docker-compose up --build -d || {
         critical_error "Error al inicializar container python"
     }
+}
+
+# Función para ejecutar el script de seed en DynamoDB
+execute_seed_script() {
     warning "Ejecutando seed_dynamodb.py"
     breakline
     docker-compose exec app python seed_dynamodb.py || {
         critical_error "Error al ejecutar seed_dynamodb.py"
     }
+}
+
+# Función para mostrar la información de entorno levantado
+display_environment_info() {
     breakline
     info "Entorno Levantado"
     breakline
@@ -25,6 +34,13 @@ seed_dynamo_db(){
     breakline
     info "Para ejecutar script: docker-compose exec app python <nombre_del_script>.py"
     breakline
+}
+
+# Inserta Datos a la DB Dynamo
+seed_dynamo_db() {
+    init_python_container
+    execute_seed_script
+    display_environment_info
 }
 
 # Inicializar y levantar los servicios de Docker
@@ -39,17 +55,22 @@ init_suit_local_up() {
     breakline
 }
 
-# Función para validar y levantar Docker Compose
-docker_compose_up() {
+# Validar Docker y Docker Compose
+validate_environment() {
     log "Validando ambiente"
     breakline
     validate_docker
     validate_docker_compose
+}
+
+# Función para validar y levantar Docker Compose
+docker_compose_up() {
+    validate_environment
     init_suit_local_up
 }
 
 # Función principal
-main() {    
+main() {
     docker_compose_up
     seed_dynamo_db
 }

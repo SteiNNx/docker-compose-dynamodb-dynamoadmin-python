@@ -80,6 +80,11 @@ Para levantar el entorno, sigue estos pasos:
    - **DynamoDB Local** en `localhost:8000`
    - **DynamoDB Admin UI** en `localhost:8001`
    - **Contenedor Python** en `localhost:5000`
+     - **Imagen** `python:3.9-slim`
+     - **Dependencias**
+       - flask
+       - boto3
+       - python-dotenv
 
 ## Ejecutar Scripts Python
 
