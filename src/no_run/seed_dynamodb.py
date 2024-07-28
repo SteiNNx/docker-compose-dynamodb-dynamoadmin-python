@@ -29,8 +29,9 @@ AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', 'fakemykeyid')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', 'fakemysecretaccesskey')
 AWS_REGION = os.getenv('AWS_REGION', 'us-east-1')
 
-# Table Name
+# DB
 TABLE_NAME = os.getenv('TABLE_BE_AD_API_POS_PAGOS', 'be-ad-api-pos-pagos')
+TABLE_DATA_JSON_SOURCE_PATH = 'no_run/db_pago.json'
 
 logger.info(f"DYNAMODB_PORT '{DYNAMODB_PORT}'.")
 logger.info(f"DYNAMODB_HOST '{DYNAMODB_HOST}'.")
@@ -187,7 +188,7 @@ def insert_data_to_dynamodb(dynamodb_client, table_name, data):
             logger.error(f"Error al insertar el registro con idPago '{record['idPago']}': {e}")
 
 def main():
-    file_path = 'db_pago.json'
+    file_path = TABLE_DATA_JSON_SOURCE_PATH
     dynamodb_client = create_dynamodb_client()
     create_table(dynamodb_client)
     data = load_json_file(file_path)

@@ -34,26 +34,26 @@ El proyecto está organizado de la siguiente manera:
 ```bash
 project-root/
 │
-├── .env                       # Variables de entorno para configurar Docker y la aplicación
-├── Dockerfile                 # Instrucciones para construir la imagen de Docker de la aplicación Python
-├── docker-compose.yml         # Configuración principal para orquestar y levantar la aplicación Python
-├── README.md                  # Descripción detallada del proyecto, configuración y uso
+├── .env                            # Variables de entorno para configurar Docker y la aplicación
+├── Dockerfile                      # Instrucciones para construir la imagen de Docker de la aplicación Python
+├── docker-compose.yml              # Configuración principal para orquestar y levantar la aplicación Python
+├── README.md                       # Descripción detallada del proyecto, configuración y uso
 │
-├── infrastructure/            # Contiene todo lo necesario para levantar y gestionar el entorno
-│   ├── docker/                # Configuraciones específicas para servicios de Docker
-│   │   └── docker-compose.yml # Configura servicios para levantar DynamoDB y su interfaz de administración
-│   └── scripts/               # Scripts para gestionar el entorno de desarrollo y producción
-│       ├── no_run/            # Scripts utilitarios no destinados a ejecución directa
-│       │   └── terminal-utils.sh # Funciones comunes y utilitarias para otros scripts de bash
+├── infrastructure/                 # Contiene todo lo necesario para levantar y gestionar el entorno
+│   ├── docker/                     # Configuraciones específicas para servicios de Docker
+│   │   └── docker-compose.yml      # Configura servicios para levantar DynamoDB y su interfaz de administración
+│   └── scripts/                    # Scripts para gestionar el entorno de desarrollo y producción
+│       ├── no_run/                 # Scripts utilitarios no destinados a ejecución directa
+│       │   └── terminal-utils.sh   # Funciones comunes y utilitarias para otros scripts de bash
 │       └── suite-dynamodb-local.sh # Script para iniciar todo el entorno, incluyendo todos los servicios necesarios
 │
-└── src/                       # Componentes de la aplicación Python
-    ├── requirements.txt       # Lista de bibliotecas y dependencias de Python necesarias
-    ├── app.py                 # Mantiene el contenedor de la aplicación activo para ejecutar scripts adicionales
-    ├── hello_world.py         # Script "Hello World!"
-    ├── migration_ttl.py       # [WIP] Script para migrar una tabla a una copia de seguridad y agregar TTL
-    ├── seed_dynamodb.py       # Script para insertar datos iniciales en DynamoDB
-    └── db_pago.json           # Datos JSON que se insertan en DynamoDB como datos iniciales o de prueba
+└── src/                            # Componentes de la aplicación Python
+    ├── requirements.txt            # Lista de bibliotecas y dependencias de Python necesarias
+    ├── hello_world.py              # Script "Hello World!"
+    ├── migration_ttl.py            # [WIP] Script para migrar una tabla a una copia de seguridad y agregar TTL
+    └── no_run/                     # Scripts y datos no destinados a ejecución directa en la aplicación principal
+        ├── seed_dynamodb.py        # Script para insertar datos iniciales en DynamoDB
+        └── db_pago.json            # Datos JSON que se insertan en DynamoDB como datos iniciales o de prueba
 ```
 
 ## Instrucciones de Configuración
@@ -78,7 +78,9 @@ Para levantar el entorno, sigue estos pasos:
    Este script levantará los siguientes contenedores:
 
    - **DynamoDB Local** en `localhost:8000`
+     - **Imagen** `amazon/dynamodb-local:2.4.0`
    - **DynamoDB Admin UI** en `localhost:8001`
+     - **Imagen** `aaronshaf/dynamodb-admin:4.6.1`
    - **Contenedor Python** en `localhost:5000`
      - **Imagen** `python:3.9-slim`
      - **Dependencias**

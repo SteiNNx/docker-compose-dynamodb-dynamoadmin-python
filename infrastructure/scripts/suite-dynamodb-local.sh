@@ -12,20 +12,21 @@ init_python_container() {
     docker-compose up --build -d || {
         critical_error "Error al inicializar container python"
     }
+    breakline
 }
 
 # Función para ejecutar el script de seed en DynamoDB
 execute_seed_script() {
     warning "Ejecutando seed_dynamodb.py"
     breakline
-    docker-compose exec app python seed_dynamodb.py || {
+    docker-compose exec app python no_run/seed_dynamodb.py || {
         critical_error "Error al ejecutar seed_dynamodb.py"
     }
+    breakline
 }
 
 # Función para mostrar la información de entorno levantado
 display_environment_info() {
-    breakline
     info "Entorno Levantado"
     breakline
     log "DynamoDB -> localhost:8000"
