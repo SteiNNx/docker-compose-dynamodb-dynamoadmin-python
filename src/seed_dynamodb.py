@@ -29,15 +29,18 @@ AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', 'fakemykeyid')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', 'fakemysecretaccesskey')
 AWS_REGION = os.getenv('AWS_REGION', 'us-east-1')
 
+# Table Name
+TABLE_NAME = os.getenv('TABLE_BE_AD_API_POS_PAGOS', 'be-ad-api-pos-pagos')
+
 logger.info(f"DYNAMODB_PORT '{DYNAMODB_PORT}'.")
 logger.info(f"DYNAMODB_HOST '{DYNAMODB_HOST}'.")
 logger.info(f"DYNAMODB_ENDPOINT '{DYNAMODB_ENDPOINT}'.")
 logger.info(f"AWS_ACCESS_KEY_ID '{AWS_ACCESS_KEY_ID}'.")
 logger.info(f"AWS_SECRET_ACCESS_KEY '{AWS_SECRET_ACCESS_KEY}'.")
 logger.info(f"AWS_REGION '{AWS_REGION}'.")
+logger.info(f"TABLE_NAME '{TABLE_NAME}'.")
 
 # Nombre de la tabla DynamoDB
-TABLE_NAME = 'Pagos'  # Cambia el nombre de la tabla según sea necesario
 
 def create_dynamodb_client():
     """Crea un cliente de DynamoDB usando la configuración local."""

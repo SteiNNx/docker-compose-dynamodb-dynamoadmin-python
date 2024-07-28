@@ -17,12 +17,13 @@ seed_dynamo_db(){
         critical_error "Error al ejecutar seed_dynamodb.py"
     }
     breakline
-    success "Entorno Levantado"
+    info "Entorno Levantado"
+    breakline
     log "DynamoDB -> localhost:8000"
     log "DynamoDB Admin -> localhost:8001"
     log "Python App -> localhost:5000"
     breakline
-    log "Para ejecutar script: docker-compose exec app python <nombre_del_script>.py"
+    info "Para ejecutar script: docker-compose exec app python <nombre_del_script>.py"
     breakline
 }
 
@@ -32,8 +33,10 @@ init_suit_local_up() {
     breakline
     source_env_vars ".env"
     docker-compose -f ./infrastructure/docker/docker-compose.yml down --volumes all --remove-orphans
-    docker-compose -f ./infrastructure/docker/docker-compose.yml up --build -d
-    warning "exit"
+    docker-compose -f ./infrastructure/docker/docker-compose.yml up --build -d || {
+        critical_error "Error al orquestar infrastructure/docker/docker-compose.yml"
+    }
+    breakline
 }
 
 # Función para validar y levantar Docker Compose

@@ -50,7 +50,8 @@ project-root/
 └── src/                       # Componentes de la aplicación Python
     ├── requirements.txt       # Lista de bibliotecas y dependencias de Python necesarias
     ├── app.py                 # Mantiene el contenedor de la aplicación activo para ejecutar scripts adicionales
-    ├── migration_ttl.py       # Script para migrar una tabla a una copia de seguridad y agregar TTL
+    ├── hello_world.py         # Script "Hello World!"
+    ├── migration_ttl.py       # [WIP] Script para migrar una tabla a una copia de seguridad y agregar TTL
     ├── seed_dynamodb.py       # Script para insertar datos iniciales en DynamoDB
     └── db_pago.json           # Datos JSON que se insertan en DynamoDB como datos iniciales o de prueba
 ```
