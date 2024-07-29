@@ -4,6 +4,7 @@ import logging
 from datetime import datetime
 import time
 from dotenv import load_dotenv
+from botocore.exceptions import ClientError
 
 # Configuración de logging
 logging.basicConfig(level=logging.INFO)
@@ -12,7 +13,7 @@ logger = logging.getLogger(__name__)
 # Cargar variables de entorno desde un archivo .env
 load_dotenv()
 
-# Configuración de DynamoDB desde las variables de entorno
+# Configuración de variables de entorno
 DYNAMODB_ENDPOINT = os.getenv('DYNAMODB_ENDPOINT', 'http://dynamodb-local:8000')
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', 'fakemykeyid')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', 'fakemysecretaccesskey')
@@ -51,6 +52,18 @@ def calculate_ttl(days=30):
     ttl_seconds = int(time.time()) + days * 86400  # 86400 segundos en un día
     # Convertir el valor a una cadena y devolverlo
     return str(ttl_seconds)
+
+# Función para habilitar TTL en la nueva tabla
+def enable_ttl():
+    dynamodb_resource.update_time_to_live(
+        TableName=TABLE_NAME,
+        TimeToLiveSpecification={
+            'Enabled': True,
+            'AttributeName': TTL_FIELD_NAME
+        }
+    )
+    
+    print(f"TTL habilitado en la tabla {TABLE_NAME}")
 
 # Función para obtener los elementos de una tabla
 def get_items(table_name):
@@ -153,135 +166,52 @@ def migrate_data(backup_table_name):
     for index, record in enumerate(items):
         logger.info(f"Iniciando migración del ítem {index + 1}/{len(items)}: {record}")
 
+        # Handle missing keys with default values
         item = {
-            'idPago': {'S': record['idPago']},
-            'UTCTimeFormat': {'S': record['UTCTimeFormat']},
-            'additionalInfo': {'S': record['additionalInfo']},
-            'attendant': {'S': record['attendant']},
-            'currencyCode': {'S': record['currencyCode']},
+            'idPago': {'S': record.get('idPago', {}).get('S', '')},
+            'UTCTimeFormat': {'S': record.get('UTCTimeFormat', {}).get('S', '')},
+            'additionalInfo': {'S': record.get('additionalInfo', {}).get('S', '')},
+            'attendant': {'S': record.get('attendant', {}).get('S', '')},
+            'currencyCode': {'S': record.get('currencyCode', {}).get('S', '')},
             'datosComercio': {'M': {
-                'MCC': {'S': record['datosComercio']['MCC']},
-                'ciudadComercio': {'S': record['datosComercio']['ciudadComercio']},
-                'clientAppOrg': {'S': record['datosComercio']['clientAppOrg']},
-                'comunaComercio': {'S': record['datosComercio']['comunaComercio']},
-                'dv': {'S': record['datosComercio']['dv']},
-                'idComercio': {'S': record['datosComercio']['idComercio']},
-                'paisComercio': {'S': record['datosComercio']['paisComercio']},
-                'rut': {'S': record['datosComercio']['rut']}
+                'MCC': {'S': record.get('datosComercio', {}).get('MCC', {}).get('S', '')},
+                'ciudadComercio': {'S': record.get('datosComercio', {}).get('ciudadComercio', {}).get('S', '')},
+                'clientAppOrg': {'S': record.get('datosComercio', {}).get('clientAppOrg', {}).get('S', '')},
+                'comunaComercio': {'S': record.get('datosComercio', {}).get('comunaComercio', {}).get('S', '')},
+                'dv': {'S': record.get('datosComercio', {}).get('dv', {}).get('S', '')},
+                'idComercio': {'S': record.get('datosComercio', {}).get('idComercio', {}).get('S', '')},
+                'paisComercio': {'S': record.get('datosComercio', {}).get('paisComercio', {}).get('S', '')},
+                'rut': {'S': record.get('datosComercio', {}).get('rut', {}).get('S', '')}
             }},
             'datosPago': {'M': {
-                'cuotas': {'N': str(record['datosPago']['cuotas'])},
-                'iva': {'N': str(record['datosPago']['iva'])},
-                'monto': {'N': str(record['datosPago']['monto'])},
-                'monto_s_prop': {'N': str(record['datosPago']['monto_s_prop'])},
-                'neto': {'N': str(record['datosPago']['neto'])},
-                'propina': {'N': str(record['datosPago']['propina'])},
-                'tipoComprobante': {'S': record['datosPago']['tipoComprobante']},
-                'tipoCuota': {'S': record['datosPago']['tipoCuota']},
-                'totalExento': {'N': str(record['datosPago']['totalExento'])},
-                'vuelto': {'N': str(record['datosPago']['vuelto'])}
+                'cuotas': {'N': str(record.get('datosPago', {}).get('cuotas', {}).get('N', '0'))},
+                'iva': {'N': str(record.get('datosPago', {}).get('iva', {}).get('N', '0'))},
+                'monto': {'N': str(record.get('datosPago', {}).get('monto', {}).get('N', '0'))}
             }},
-            'datosSucursal': {'M': {
-                'comunaSucursal': {'S': record['datosSucursal']['comunaSucursal']},
-                'direccionSucursal': {'S': record['datosSucursal']['direccionSucursal']},
-                'idSucursal': {'S': record['datosSucursal']['idSucursal']},
-                'idSucursalOP': {'S': record['datosSucursal']['idSucursalOP']},
-                'nombreSucursal': {'S': record['datosSucursal']['nombreSucursal']},
-                'paisSucursal': {'S': record['datosSucursal']['paisSucursal']},
-                'regionSucursal': {'S': record['datosSucursal']['regionSucursal']}
-            }},
-            'datosTarjeta': {'M': {
-                'bin': {'S': record['datosTarjeta']['bin']},
-                'abreviatura': {'S': record['datosTarjeta']['abreviatura']},
-                'marca': {'S': record['datosTarjeta']['marca']},
-                'cardEntryMode': {'S': record['datosTarjeta']['cardEntryMode']},
-                'cardSeqNumb': {'S': record['datosTarjeta']['cardSeqNumb']},
-                'tipo': {'S': record['datosTarjeta']['tipo']},
-                'conditionCode': {'S': record['datosTarjeta']['conditionCode']},
-                'fourDigits': {'S': record['datosTarjeta']['fourDigits']},
-                'invoiceData': {'S': record['datosTarjeta']['invoiceData']}
-            }},
-            'idTerminal': {'S': record['idTerminal']},
-            'infoAdicional': {'M': {
-                'canal': {'S': record['infoAdicional']['canal']},
-                'card_entry': {'S': record['infoAdicional']['card_entry']},
-                'portador': {'S': record['infoAdicional']['portador']},
-                'serial_number': {'S': record['infoAdicional']['serial_number']},
-                'sim_id': {'S': record['infoAdicional']['sim_id']},
-                'version_app': {'S': record['infoAdicional']['version_app']},
-                'bins': {'M': {
-                    'date_file': {'S': record['infoAdicional']['bins']['date_file']},
-                    'date_update': {'S': record['infoAdicional']['bins']['date_update']},
-                    'record_count': {'N': str(record['infoAdicional']['bins']['record_count'])},
-                    'version': {'N': str(record['infoAdicional']['bins']['version'])}
-                }},
-                'emv_aid': {'M': {
-                    'date_file': {'S': record['infoAdicional']['emv_aid']['date_file']},
-                    'date_update': {'S': record['infoAdicional']['emv_aid']['date_update']},
-                    'version': {'N': str(record['infoAdicional']['emv_aid']['version'])}
-                }},
-                'emv_capk': {'M': {
-                    'date_file': {'S': record['infoAdicional']['emv_capk']['date_file']},
-                    'date_update': {'S': record['infoAdicional']['emv_capk']['date_update']},
-                    'version': {'N': str(record['infoAdicional']['emv_capk']['version'])}
-                }},
-                'errors': {'M': {
-                    'date_file': {'S': record['infoAdicional']['errors']['date_file']},
-                    'date_update': {'S': record['infoAdicional']['errors']['date_update']},
-                    'version': {'N': str(record['infoAdicional']['errors']['version'])}
-                }},
-                'propinaActiva': {'BOOL': record['infoAdicional']['propinaActiva']}
-            }},
-            'localDate': {'S': record['localDate']},
-            'localTime': {'S': record['localTime']},
-            'localTimeFormat': {'S': record['localTimeFormat']},
-            'millisecDate': {'S': record['millisecDate']},
-            'ocAlianza': {'S': record['ocAlianza']},
-            'rrn': {'S': record['rrn']}
+            'fecha': {'S': record.get('fecha', {}).get('S', '')},
+            TTL_FIELD_NAME: {'N': calculate_ttl()}
         }
 
-        # Add the TTL attribute to each item
-        item[TTL_FIELD_NAME] = {'N': str(calculate_ttl())}
+        logger.info(f"item info: {record}")
 
-        # Log the item information after adding the TTL
-        logger.debug(f"Item con TTL añadido {index + 1}/{len(items)}: {item}")
-
-        # Try to put the item into the table
+        # Migrar el ítem a la tabla de respaldo
         try:
             dynamodb_client.put_item(TableName=backup_table_name, Item=item)
             logger.info(f"Ítem {index + 1}/{len(items)} migrado exitosamente")
         except ClientError as e:
-            logger.error(f"Error al migrar el ítem {index + 1}/{len(items)}: {e}")
-            logger.error(f"Detalles del ítem que causó el error: {item}")
-        except Exception as e:
-            logger.error(f"Error inesperado al migrar el ítem {index + 1}/{len(items)}: {e}")
-            logger.error(f"Detalles del ítem que causó el error: {item}")
+            logger.error(f"Error al migrar el ítem {index + 1}/{len(items)}: {e.response['Error']['Message']}")
+            raise
 
-    logger.info(f"Datos migrados a {backup_table_name} con éxito")
-
-# Función para eliminar la tabla original
-def delete_table():
-    dynamodb_client.delete_table(TableName=TABLE_NAME)
-    logger.info(f"Tabla {TABLE_NAME} eliminada")
-
-# Función para habilitar TTL en la nueva tabla
-def enable_ttl(backup_table_name):
-    dynamodb_client.update_time_to_live(
-        TableName=backup_table_name,
-        TimeToLiveSpecification={
-            'Enabled': True,
-            'AttributeName': TTL_FIELD_NAME
-        }
-    )
-
-    logger.info(f"TTL habilitado en la tabla {backup_table_name}")
-
-# Ejecutar el flujo de trabajo
-def main():
-    backup_table_name = create_backup_table()
-    migrate_data(backup_table_name)
-    add_ttl_attribute(backup_table_name)
-    enable_ttl(backup_table_name)
+# Función principal para realizar la copia de seguridad
+def run_backup():
+    logger.info("Iniciando el proceso de copia de seguridad")
+    try:
+        backup_table_name = create_backup_table()
+        migrate_data(backup_table_name)
+        add_ttl_attribute(backup_table_name)
+        logger.info(f"Copia de seguridad completada exitosamente en la tabla: {backup_table_name}")
+    except Exception as e:
+        logger.error(f"Error en el proceso de copia de seguridad: {str(e)}")
 
 if __name__ == '__main__':
-    main()
+    run_backup()

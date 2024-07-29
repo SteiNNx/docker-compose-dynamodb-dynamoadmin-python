@@ -1,542 +1,871 @@
 [
     {
-        "UTCTimeFormat": "2024-07-24:23:24:55.442",
-        "additionalInfo": "\u0026 0000700364! B200158 7FF900008000000000009E534473D576BD730000000028100000000000002000001015215224072400E6A9F72B000706010A03A0200000000000000000000000000000000000000000000000000000! B400020 071510013F000015080 ! B300080 CF000W104940E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400012 000000020233! S400020 0100079F6E0420700000! P700002 C ",
-        "attendant": "0",
-        "currencyCode": "152",
+        "idPago": "4dca344f-2a44-4b46-a9e9-d1c563052333",
+        "codigoAutorizacion": "sin código",
         "datosComercio": {
-            "MCC": "5499",
-            "ciudadComercio": "Valdivia",
-            "clientAppOrg": "Registro venta masiva",
-            "comunaComercio": "Valdivia",
-            "dv": "1",
-            "idComercio": "876065401676",
+            "ciudadComercio": "Santiago",
+            "clientAppOrg": "Compraqui",
+            "dv": "8",
+            "idComercio": "159024002672",
+            "MCC": "7230",
             "paisComercio": "Chile",
-            "rut": "87606540"
+            "rut": "15902400"
         },
         "datosPago": {
-            "cuotas": 0,
-            "iva": 408,
-            "monto": 2810,
-            "monto_s_prop": 2555,
-            "neto": 2147,
-            "propina": 255,
-            "tipoComprobante": "Boleta afecta",
-            "tipoCuota": "0",
-            "totalExento": 0,
-            "vuelto": 0
+            "cuotas": "00",
+            "iva": 0,
+            "monto": 2000,
+            "neto": 0,
+            "tipoComprobante": "Boleta exenta",
+            "totalExento": 2000
         },
         "datosSucursal": {
-            "comunaSucursal": "Valdivia",
-            "direccionSucursal": "Independencia   455",
-            "idSucursal": "a3Z8L000000HJPNUA4",
-            "idSucursalOP": "876065400705",
-            "nombreSucursal": "pruebavmasiva47@yopmail.com",
-            "paisSucursal": "Chile",
-            "regionSucursal": "Los Rios"
+            "regionSucursal": "Sin Region"
         },
         "datosTarjeta": {
-            "bin": "496617",
             "abreviatura": "VI",
-            "marca": "VISA",
-            "cardEntryMode": "071",
-            "cardSeqNumb": "01",
-            "tipo": "C",
+            "bin": "621996",
+            "cardEntryMode": "901",
             "conditionCode": "00",
-            "fourDigits": "1843",
-            "invoiceData": "55555"
+            "fourDigits": "9010",
+            "invoiceData": "1",
+            "marca": "VISA",
+            "tipo": "D"
         },
-        "idPago": "18be62f8-36d2-46a9-9e30-cc7c1f220264",
-        "idTerminal": "n005cs23",
-        "infoAdicional": {
-            "canal": "RED_MOVIL",
-            "card_entry": "CTLS",
-            "portador": "ENTEL",
-            "serial_number": "N860W104940",
-            "sim_id": "89560100001257725568",
-            "version_app": "3.0.3.dev",
+        "diaNumSerie": "2024-01-09|N860W104928",
+        "diaNumSerieEstado": "2024-01-09|N860W104928|RECHAZADO_PAGO",
+        "estado": "RECHAZADO_PAGO",
+        "fecha": "2024-02-06:16:40:48.916",
+        "fechaAnulacion": null,
+        "fechaDia": "2024-02-06",
+        "fechaUTC": "2024-02-06:16:40:48.916",
+        "idComercio": "159024002672",
+        "idTerminal": "VTY00001",
+        "infoAdicionalPOS": {
             "bins": {
-                "date_file": "12-01-2023",
-                "date_update": "12-01-2023",
+                "date_file": "-",
+                "date_update": "-",
                 "record_count": 1530,
-                "version": 4
-            },
-            "emv_aid": {
-                "date_file": "01-01-2000",
-                "date_update": "01-01-2000",
                 "version": 0
             },
-            "emv_capk": {
-                "date_file": "01-01-2000",
-                "date_update": "01-01-2000",
+            "canal": "RED_MOVIL",
+            "card_entry": "MSR",
+            "portador": "MOVISTAR",
+            "serial_number": "N860W104928",
+            "sim_id": "8956028200158978295F",
+            "version_app": "2.0.10.qa"
+        },
+        "log": [
+            {
+                "idPago": "4dca344f-2a44-4b46-a9e9-d1c563052c51",
+                "estado": "RECHAZADO_PAGO",
+                "fechas": {
+                    "fechaAnulacion": null,
+                    "fechaAPILocal": "2024-01-09:16:40:48.598",
+                    "fechaAPIUTC": "2024-01-09:19:40:48.598",
+                    "fechaPOSLocal": "2024-01-09:16:40:48.916",
+                    "fechaPOSUTC": "2024-01-09:16:40:48.916"
+                },
+                "infoAdicionalPOS": {
+                    "bins": {
+                        "date_file": "-",
+                        "date_update": "-",
+                        "record_count": 1530,
+                        "version": 0
+                    },
+                    "canal": "RED_MOVIL",
+                    "card_entry": "MSR",
+                    "portador": "MOVISTAR",
+                    "serial_number": "N860W104928",
+                    "sim_id": "8956028200158978295F",
+                    "version_app": "2.0.10.qa"
+                },
+                "POSrequest": {
+                    "idPago": "4dca344f-2a44-4b46-a9e9-d1c563052c51",
+                    "additionalInfo": "& 0000700390! B200158 7FF9000080000004800189B6B5B97CF1D5C7000000000800000000000000198004D91521522210280069BE9B1200180110A04003220000000000000000000000FF0000000000000000000000000000! B400020 9015000042030015080 ! B300080 CF000W104928A060C8000000000000002200024203000007A0000000041010000000000000000000! C400012 000000020233! S400046 0100205A0855920221001153669F6E0701520000303000! P700002 D ",
+                    "captureDate": "1028",
+                    "currencyCode": "152",
+                    "datosComercio": {
+                        "ciudadComercio": "Santiago",
+                        "clientAppOrg": "Compraqui",
+                        "dv": "8",
+                        "idComercio": "159024002672",
+                        "MCC": "7230",
+                        "paisComercio": "Chile",
+                        "rut": "15902400"
+                    },
+                    "datosPago": {
+                        "cuotas": "00",
+                        "iva": 0,
+                        "monto": 2000,
+                        "neto": 0,
+                        "tipoComprobante": "Boleta exenta",
+                        "totalExento": 2000
+                    },
+                    "datosSucursal": {
+                        "regionSucursal": "Sin Region"
+                    },
+                    "datosTarjeta": {
+                        "abreviatura": "VI",
+                        "bin": "621996",
+                        "cardEntryMode": "901",
+                        "conditionCode": "00",
+                        "fourDigits": "9010",
+                        "invoiceData": "1",
+                        "marca": "VISA",
+                        "tipo": "D"
+                    },
+                    "fecha": "2024-01-09:16:40:48.916",
+                    "fechaAnulacion": null,
+                    "fechaUTC": "2024-01-09:16:40:48.916",
+                    "idTerminal": "VTY00001",
+                    "infoAdicionalPOS": {
+                        "bins": {
+                            "date_file": "-",
+                            "date_update": "-",
+                            "record_count": 1530,
+                            "version": 0
+                        },
+                        "canal": "RED_MOVIL",
+                        "card_entry": "MSR",
+                        "portador": "MOVISTAR",
+                        "serial_number": "N860W104928",
+                        "sim_id": "8956028200158978295F",
+                        "version_app": "2.0.10.qa"
+                    },
+                    "rrn": "${formattedThreadNum}",
+                    "secureFields": {
+                        "pinBlock": "94D32B23781CF921",
+                        "pinblockKsn": "FFFFFF982821420009D2",
+                        "track2": "AF58722319CBEFE4E84960B12EE7E20B46CEBF49880742CC920D7224546AC9C2",
+                        "track2ksn": "FFFFFF982821420009D1"
+                    },
+                    "tipoOperacion": "MPURCHASE",
+                    "total": 0
+                },
+                "requestSent": {
+                    "OPRequest": {
+                        "Security": {
+                            "EncryptedKey": {
+                                "CipherData": {
+                                    "CipherValue": "q/GpUtn5iB/1raYz4O9LJ4N92WYuCUyk6fOWSmxtMvsqGlzD7JZBvCFM6AzXNiH3kXunzxUp8UMVxdpUSpTNLBYwlkuqSuYKAuRZSIQagElshE22jQesPeH2oeqmkm1TE3ZSiVFqVVb+Y8B1KTjkf2+59iR22PWJSLbMXuoKYd+HdyeekudomAYsdIpqm+Zw0odx8kCuOlVAkBVYG6dGr2+ajw/7bOuiujlQMPHL7+WKreIkc+JUFmDpKyoRRDrGtI37lNBIP7fNw4s4ZGA6tTWWn4Qemu980sUzJ/9R0Lo/mgcvyP9IJ1QNY2KV0h3a4Y3DI1NrdbJPfSPDYKXaXw=="
+                                },
+                                "EncryptionMethod": {
+                                    "Algorithm": "rsa-1_5"
+                                },
+                                "KeyInfo": {
+                                    "SecurityTokenReference": {
+                                        "KeyIdentifier": {
+                                            "EncodingType": "Base64Binary",
+                                            "Value": "jdCjOS9nlze8pqzqx+5mh4yIqms=",
+                                            "ValueType": "X509SubjectKeyIdentifier"
+                                        }
+                                    }
+                                },
+                                "ReferenceList": {
+                                    "DataReference": {
+                                        "Field": "track2"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "opSvcRqBody": {
+                        "acqInstID": "00000000000",
+                        "additionalInfo": "& 0000700390! B200158 7FF9000080000004800189B6B5B97CF1D5C7000000000800000000000000198004D91521522210280069BE9B1200180110A04003220000000000000000000000FF0000000000000000000000000000! B400020 9015000042030015080 ! B300080 CF000W104928A060C8000000000000002200024203000007A0000000041010000000000000000000! C400012 000000020233! S400046 0100205A0855920221001153669F6E0701520000303000! P700002 D ",
+                        "altMerchID": "CH",
+                        "amount": {
+                            "currencyCode": "152",
+                            "decimalPosition": "2",
+                            "value": 2000
+                        },
+                        "cardAcceptor": {
+                            "address": {
+                                "city": "Santiago",
+                                "countryCode": "CL"
+                            },
+                            "cardAcceptorID": "000000000159024002672",
+                            "cardAcceptorIDCode": "000000000159024002672",
+                            "cardAcceptorName": "Transbank POS Móvil",
+                            "merchantCategoryCode": "7230"
+                        },
+                        "cardEntryMode": "901",
+                        "codigoOperacion": "0100",
+                        "cuit": "159024008",
+                        "fechas": {
+                            "captureDate": "2024-01-09",
+                            "fechLocal": "2024-01-09T16:40:48.916",
+                            "fechUTCTimestamp": "2024-01-09T19:40:48.916Z"
+                        },
+                        "forwardingInstID": "00000000000",
+                        "posInfo": {
+                            "cardPresent": "S",
+                            "posEntryMode": "801"
+                        },
+                        "primaryAccNumber": {
+                            "pan": "6219960402279010"
+                        },
+                        "procCode": "000000",
+                        "procCodeFinal": "000000",
+                        "retrievalReferenceNumber": "200910205",
+                        "secureFields": {
+                            "emvInfo": "sfePQcXP0QsHfM6eUKe4p3zKAtBWTTzJ4HePv3SuZIZ4MGY2iVVRMXXllT44HLjolY1w2s/8MLgS6DvhB5m8Fkf7OkdPCkvm8oioD5j5cvhAEfmMKerUkKBFJdAVKnuh4rNgcgoWkC/xE2eElNHfrvmrQtk6Voz8Di2qSCEuWgrr9J23EKUqA9cT7rGwbYN7Qmj5OTrx0xjCe55KFYeeExoATrcoTHXRYql8IdIgW+4sFPTUSI1ltXBbB3ZZ9ZG4pmOItgoSwMPvmLRaZ0b61fSSXzXa6f1uohk5BBX85TP1vN4TLjM/yUs3wU0VMwihD3E4ex9ixMNhEayhKr0slJ8hDlF7bdBRcT8BGB40D4BFjb82ppqSV+2LRQXx7At9Y0fZcLcbNr6kW2iC0CPuCSje6oM0blPqKL7NTSn1TKzvY6z34H7STuLbt15I91JdoaZ9LD4pa5lfJvPzzm12o7I9mheFBhKSPjREy8ux85Bvl00iXIz8VSRcqVwKaCVqRa69uM6MbwhnMbpdmhihCw2YJKiCeyP4YgH3yLE8p/2T3oEx9Jg+M/8="
+                        },
+                        "terminalID": "VTY00001",
+                        "terminalType": "POS",
+                        "track2Data": {
+                            "encryptedData": "AF58722319CBEFE4E84960B12EE7E20B46CEBF49880742CC920D7224546AC9C2",
+                            "ksn": "FFFFFF982821420009D1"
+                        }
+                    }
+                }
+            }
+        ],
+        "mediosDePago": {
+            "ciudadComercio": "Santiago",
+            "clientAppOrg": "Compraqui",
+            "dv": "8",
+            "idComercio": "159024002672",
+            "mcc": "7230",
+            "paisComercio": "Chile",
+            "rut": "15902400"
+        },
+        "numCuota": "00",
+        "numSerie": "N860W104928",
+        "numSerieEstado": "N860W104928|RECHAZADO_PAGO",
+        "numSerieStatus": "N860W104928|RECHAZADO_PAGO",
+        "offuscatedAmount": 0,
+        "status": "RECHAZADO_PAGO",
+        "userId": "compraaqui",
+        "voidDate": null
+    },
+    {
+        "idPago": "4dca344f-2a44-4b46-a9e9-d1c563052f32",
+        "codigoAutorizacion": "sin código",
+        "datosComercio": {
+            "ciudadComercio": "Santiago",
+            "clientAppOrg": "Compraqui",
+            "dv": "8",
+            "idComercio": "159024002672",
+            "MCC": "7230",
+            "paisComercio": "Chile",
+            "rut": "15902400"
+        },
+        "datosPago": {
+            "cuotas": "00",
+            "iva": 0,
+            "monto": 2000,
+            "neto": 0,
+            "tipoComprobante": "Boleta exenta",
+            "totalExento": 2000
+        },
+        "datosSucursal": {
+            "regionSucursal": "Sin Region"
+        },
+        "datosTarjeta": {
+            "abreviatura": "VI",
+            "bin": "621996",
+            "cardEntryMode": "901",
+            "conditionCode": "00",
+            "fourDigits": "9010",
+            "invoiceData": "1",
+            "marca": "VISA",
+            "tipo": "D"
+        },
+        "diaNumSerie": "2024-01-09|N860W104928",
+        "diaNumSerieEstado": "2024-01-09|N860W104928|RECHAZADO_PAGO",
+        "estado": "RECHAZADO_PAGO",
+        "fecha": "2024-02-06:16:40:48.916",
+        "fechaAnulacion": null,
+        "fechaDia": "2024-02-06",
+        "fechaUTC": "2024-02-06:16:40:48.916",
+        "idComercio": "159024002672",
+        "idTerminal": "VTY00001",
+        "infoAdicionalPOS": {
+            "bins": {
+                "date_file": "-",
+                "date_update": "-",
+                "record_count": 1530,
                 "version": 0
             },
-            "errors": {
-                "date_file": "15-02-2023",
-                "date_update": "15-02-2023",
-                "version": 1
-            },
-            "propinaActiva": true
+            "canal": "RED_MOVIL",
+            "card_entry": "MSR",
+            "portador": "MOVISTAR",
+            "serial_number": "N860W104928",
+            "sim_id": "8956028200158978295F",
+            "version_app": "2.0.10.qa"
         },
-        "localDate": "0724",
-        "localTime": "192455",
-        "localTimeFormat": "2024-07-24:19:24:55.437",
-        "millisecDate": "1721863495442",
-        "ocAlianza": "NA",
-        "rrn": "374896649156",
-        "secureFields": {
-            "track2": "F51A5F110A09BAD29B77A9BBAF055EB4535F45EF86C043DDACCC9CF959B9B42985345DE6CF4F7D8A",
-            "track2ksn": "FFFFFF98282142000251"
-        }
+        "log": [
+            {
+                "idPago": "4dca344f-2a44-4b46-a9e9-d1c563052c51",
+                "estado": "RECHAZADO_PAGO",
+                "fechas": {
+                    "fechaAnulacion": null,
+                    "fechaAPILocal": "2024-01-09:16:40:48.598",
+                    "fechaAPIUTC": "2024-01-09:19:40:48.598",
+                    "fechaPOSLocal": "2024-01-09:16:40:48.916",
+                    "fechaPOSUTC": "2024-01-09:16:40:48.916"
+                },
+                "infoAdicionalPOS": {
+                    "bins": {
+                        "date_file": "-",
+                        "date_update": "-",
+                        "record_count": 1530,
+                        "version": 0
+                    },
+                    "canal": "RED_MOVIL",
+                    "card_entry": "MSR",
+                    "portador": "MOVISTAR",
+                    "serial_number": "N860W104928",
+                    "sim_id": "8956028200158978295F",
+                    "version_app": "2.0.10.qa"
+                },
+                "POSrequest": {
+                    "idPago": "4dca344f-2a44-4b46-a9e9-d1c563052c51",
+                    "additionalInfo": "& 0000700390! B200158 7FF9000080000004800189B6B5B97CF1D5C7000000000800000000000000198004D91521522210280069BE9B1200180110A04003220000000000000000000000FF0000000000000000000000000000! B400020 9015000042030015080 ! B300080 CF000W104928A060C8000000000000002200024203000007A0000000041010000000000000000000! C400012 000000020233! S400046 0100205A0855920221001153669F6E0701520000303000! P700002 D ",
+                    "captureDate": "1028",
+                    "currencyCode": "152",
+                    "datosComercio": {
+                        "ciudadComercio": "Santiago",
+                        "clientAppOrg": "Compraqui",
+                        "dv": "8",
+                        "idComercio": "159024002672",
+                        "MCC": "7230",
+                        "paisComercio": "Chile",
+                        "rut": "15902400"
+                    },
+                    "datosPago": {
+                        "cuotas": "00",
+                        "iva": 0,
+                        "monto": 2000,
+                        "neto": 0,
+                        "tipoComprobante": "Boleta exenta",
+                        "totalExento": 2000
+                    },
+                    "datosSucursal": {
+                        "regionSucursal": "Sin Region"
+                    },
+                    "datosTarjeta": {
+                        "abreviatura": "VI",
+                        "bin": "621996",
+                        "cardEntryMode": "901",
+                        "conditionCode": "00",
+                        "fourDigits": "9010",
+                        "invoiceData": "1",
+                        "marca": "VISA",
+                        "tipo": "D"
+                    },
+                    "fecha": "2024-01-09:16:40:48.916",
+                    "fechaAnulacion": null,
+                    "fechaUTC": "2024-01-09:16:40:48.916",
+                    "idTerminal": "VTY00001",
+                    "infoAdicionalPOS": {
+                        "bins": {
+                            "date_file": "-",
+                            "date_update": "-",
+                            "record_count": 1530,
+                            "version": 0
+                        },
+                        "canal": "RED_MOVIL",
+                        "card_entry": "MSR",
+                        "portador": "MOVISTAR",
+                        "serial_number": "N860W104928",
+                        "sim_id": "8956028200158978295F",
+                        "version_app": "2.0.10.qa"
+                    },
+                    "rrn": "${formattedThreadNum}",
+                    "secureFields": {
+                        "pinBlock": "94D32B23781CF921",
+                        "pinblockKsn": "FFFFFF982821420009D2",
+                        "track2": "AF58722319CBEFE4E84960B12EE7E20B46CEBF49880742CC920D7224546AC9C2",
+                        "track2ksn": "FFFFFF982821420009D1"
+                    },
+                    "tipoOperacion": "MPURCHASE",
+                    "total": 0
+                },
+                "requestSent": {
+                    "OPRequest": {
+                        "Security": {
+                            "EncryptedKey": {
+                                "CipherData": {
+                                    "CipherValue": "q/GpUtn5iB/1raYz4O9LJ4N92WYuCUyk6fOWSmxtMvsqGlzD7JZBvCFM6AzXNiH3kXunzxUp8UMVxdpUSpTNLBYwlkuqSuYKAuRZSIQagElshE22jQesPeH2oeqmkm1TE3ZSiVFqVVb+Y8B1KTjkf2+59iR22PWJSLbMXuoKYd+HdyeekudomAYsdIpqm+Zw0odx8kCuOlVAkBVYG6dGr2+ajw/7bOuiujlQMPHL7+WKreIkc+JUFmDpKyoRRDrGtI37lNBIP7fNw4s4ZGA6tTWWn4Qemu980sUzJ/9R0Lo/mgcvyP9IJ1QNY2KV0h3a4Y3DI1NrdbJPfSPDYKXaXw=="
+                                },
+                                "EncryptionMethod": {
+                                    "Algorithm": "rsa-1_5"
+                                },
+                                "KeyInfo": {
+                                    "SecurityTokenReference": {
+                                        "KeyIdentifier": {
+                                            "EncodingType": "Base64Binary",
+                                            "Value": "jdCjOS9nlze8pqzqx+5mh4yIqms=",
+                                            "ValueType": "X509SubjectKeyIdentifier"
+                                        }
+                                    }
+                                },
+                                "ReferenceList": {
+                                    "DataReference": {
+                                        "Field": "track2"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "opSvcRqBody": {
+                        "acqInstID": "00000000000",
+                        "additionalInfo": "& 0000700390! B200158 7FF9000080000004800189B6B5B97CF1D5C7000000000800000000000000198004D91521522210280069BE9B1200180110A04003220000000000000000000000FF0000000000000000000000000000! B400020 9015000042030015080 ! B300080 CF000W104928A060C8000000000000002200024203000007A0000000041010000000000000000000! C400012 000000020233! S400046 0100205A0855920221001153669F6E0701520000303000! P700002 D ",
+                        "altMerchID": "CH",
+                        "amount": {
+                            "currencyCode": "152",
+                            "decimalPosition": "2",
+                            "value": 2000
+                        },
+                        "cardAcceptor": {
+                            "address": {
+                                "city": "Santiago",
+                                "countryCode": "CL"
+                            },
+                            "cardAcceptorID": "000000000159024002672",
+                            "cardAcceptorIDCode": "000000000159024002672",
+                            "cardAcceptorName": "Transbank POS Móvil",
+                            "merchantCategoryCode": "7230"
+                        },
+                        "cardEntryMode": "901",
+                        "codigoOperacion": "0100",
+                        "cuit": "159024008",
+                        "fechas": {
+                            "captureDate": "2024-01-09",
+                            "fechLocal": "2024-01-09T16:40:48.916",
+                            "fechUTCTimestamp": "2024-01-09T19:40:48.916Z"
+                        },
+                        "forwardingInstID": "00000000000",
+                        "posInfo": {
+                            "cardPresent": "S",
+                            "posEntryMode": "801"
+                        },
+                        "primaryAccNumber": {
+                            "pan": "6219960402279010"
+                        },
+                        "procCode": "000000",
+                        "procCodeFinal": "000000",
+                        "retrievalReferenceNumber": "200910205",
+                        "secureFields": {
+                            "emvInfo": "sfePQcXP0QsHfM6eUKe4p3zKAtBWTTzJ4HePv3SuZIZ4MGY2iVVRMXXllT44HLjolY1w2s/8MLgS6DvhB5m8Fkf7OkdPCkvm8oioD5j5cvhAEfmMKerUkKBFJdAVKnuh4rNgcgoWkC/xE2eElNHfrvmrQtk6Voz8Di2qSCEuWgrr9J23EKUqA9cT7rGwbYN7Qmj5OTrx0xjCe55KFYeeExoATrcoTHXRYql8IdIgW+4sFPTUSI1ltXBbB3ZZ9ZG4pmOItgoSwMPvmLRaZ0b61fSSXzXa6f1uohk5BBX85TP1vN4TLjM/yUs3wU0VMwihD3E4ex9ixMNhEayhKr0slJ8hDlF7bdBRcT8BGB40D4BFjb82ppqSV+2LRQXx7At9Y0fZcLcbNr6kW2iC0CPuCSje6oM0blPqKL7NTSn1TKzvY6z34H7STuLbt15I91JdoaZ9LD4pa5lfJvPzzm12o7I9mheFBhKSPjREy8ux85Bvl00iXIz8VSRcqVwKaCVqRa69uM6MbwhnMbpdmhihCw2YJKiCeyP4YgH3yLE8p/2T3oEx9Jg+M/8="
+                        },
+                        "terminalID": "VTY00001",
+                        "terminalType": "POS",
+                        "track2Data": {
+                            "encryptedData": "AF58722319CBEFE4E84960B12EE7E20B46CEBF49880742CC920D7224546AC9C2",
+                            "ksn": "FFFFFF982821420009D1"
+                        }
+                    }
+                }
+            }
+        ],
+        "mediosDePago": {
+            "ciudadComercio": "Santiago",
+            "clientAppOrg": "Compraqui",
+            "dv": "8",
+            "idComercio": "159024002672",
+            "mcc": "7230",
+            "paisComercio": "Chile",
+            "rut": "15902400"
+        },
+        "numCuota": "00",
+        "numSerie": "N860W104928",
+        "numSerieEstado": "N860W104928|RECHAZADO_PAGO",
+        "numSerieStatus": "N860W104928|RECHAZADO_PAGO",
+        "offuscatedAmount": 0,
+        "status": "RECHAZADO_PAGO",
+        "userId": "compraaqui",
+        "voidDate": null
     },
     {
-        "UTCTimeFormat": "2024-07-24:23:25:12.123",
-        "additionalInfo": "\u0026 0000700365! B200159 7FF900008000000000009E534473D576BD731000000028100000000000002000001015215224072400E6A9F72B000706010A03A0200000000000000000000000000000000000000000000000000000! B400021 071510013F000015080 ! B300081 CF000W104941E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400013 000000020234! S400021 0100079F6E0420700001! P700003 C ",
-        "attendant": "1",
-        "currencyCode": "152",
+        "idPago": "4dca344f-2a44-4b46-a9e9-d1c563052c51",
+        "codigoAutorizacion": "sin código",
         "datosComercio": {
-            "MCC": "5499",
-            "ciudadComercio": "Valdivia",
-            "clientAppOrg": "Registro venta masiva",
-            "comunaComercio": "Valdivia",
-            "dv": "1",
-            "idComercio": "876065401677",
+            "ciudadComercio": "Santiago",
+            "clientAppOrg": "Compraqui",
+            "dv": "8",
+            "idComercio": "159024002672",
+            "MCC": "7230",
             "paisComercio": "Chile",
-            "rut": "87606541"
+            "rut": "15902400"
         },
         "datosPago": {
-            "cuotas": 1,
-            "iva": 410,
-            "monto": 2820,
-            "monto_s_prop": 2560,
-            "neto": 2150,
-            "propina": 260,
-            "tipoComprobante": "Boleta afecta",
-            "tipoCuota": "1",
-            "totalExento": 0,
-            "vuelto": 10
+            "cuotas": "00",
+            "iva": 0,
+            "monto": 2000,
+            "neto": 0,
+            "tipoComprobante": "Boleta exenta",
+            "totalExento": 2000
         },
         "datosSucursal": {
-            "comunaSucursal": "Valdivia",
-            "direccionSucursal": "Independencia   456",
-            "idSucursal": "a3Z8L000000HJPNUA5",
-            "idSucursalOP": "876065400706",
-            "nombreSucursal": "pruebavmasiva48@yopmail.com",
-            "paisSucursal": "Chile",
-            "regionSucursal": "Los Rios"
+            "regionSucursal": "Sin Region"
         },
         "datosTarjeta": {
-            "bin": "496618",
             "abreviatura": "VI",
+            "bin": "621996",
+            "cardEntryMode": "901",
+            "conditionCode": "00",
+            "fourDigits": "9010",
+            "invoiceData": "1",
             "marca": "VISA",
-            "cardEntryMode": "072",
-            "cardSeqNumb": "02",
-            "tipo": "D",
-            "conditionCode": "01",
-            "fourDigits": "1844",
-            "invoiceData": "55556"
+            "tipo": "D"
         },
-        "idPago": "18be62f8-36d2-46a9-9e30-cc7c1f220265",
-        "idTerminal": "n005cs24",
-        "infoAdicional": {
-            "canal": "RED_MOVIL",
-            "card_entry": "CTLS",
-            "portador": "ENTEL",
-            "serial_number": "N860W104941",
-            "sim_id": "89560100001257725569",
-            "version_app": "3.0.4.dev",
+        "diaNumSerie": "2024-01-09|N860W104928",
+        "diaNumSerieEstado": "2024-01-09|N860W104928|RECHAZADO_PAGO",
+        "estado": "RECHAZADO_PAGO",
+        "fecha": "2024-02-06:16:40:48.916",
+        "fechaAnulacion": null,
+        "fechaDia": "2024-02-06",
+        "fechaUTC": "2024-02-06:16:40:48.916",
+        "idComercio": "159024002672",
+        "idTerminal": "VTY00001",
+        "infoAdicionalPOS": {
             "bins": {
-                "date_file": "13-01-2023",
-                "date_update": "13-01-2023",
-                "record_count": 1531,
-                "version": 4
+                "date_file": "-",
+                "date_update": "-",
+                "record_count": 1530,
+                "version": 0
             },
-            "emv_aid": {
-                "date_file": "02-01-2000",
-                "date_update": "02-01-2000",
-                "version": 1
-            },
-            "emv_capk": {
-                "date_file": "02-01-2000",
-                "date_update": "02-01-2000",
-                "version": 1
-            },
-            "errors": {
-                "date_file": "16-02-2023",
-                "date_update": "16-02-2023",
-                "version": 2
-            },
-            "propinaActiva": true
+            "canal": "RED_MOVIL",
+            "card_entry": "MSR",
+            "portador": "MOVISTAR",
+            "serial_number": "N860W104928",
+            "sim_id": "8956028200158978295F",
+            "version_app": "2.0.10.qa"
         },
-        "localDate": "0724",
-        "localTime": "192512",
-        "localTimeFormat": "2024-07-24:19:25:12.123",
-        "millisecDate": "1721863712123",
-        "ocAlianza": "NA",
-        "rrn": "374896649157",
-        "secureFields": {
-            "track2": "F51A5F110A09BAD29B77A9BBAF055EB4535F45EF86C043DDACCC9CF959B9B42985345DE6CF4F7D8B",
-            "track2ksn": "FFFFFF98282142000252"
-        }
+        "log": [
+            {
+                "idPago": "4dca344f-2a44-4b46-a9e9-d1c563052c51",
+                "estado": "RECHAZADO_PAGO",
+                "fechas": {
+                    "fechaAnulacion": null,
+                    "fechaAPILocal": "2024-01-09:16:40:48.598",
+                    "fechaAPIUTC": "2024-01-09:19:40:48.598",
+                    "fechaPOSLocal": "2024-01-09:16:40:48.916",
+                    "fechaPOSUTC": "2024-01-09:16:40:48.916"
+                },
+                "infoAdicionalPOS": {
+                    "bins": {
+                        "date_file": "-",
+                        "date_update": "-",
+                        "record_count": 1530,
+                        "version": 0
+                    },
+                    "canal": "RED_MOVIL",
+                    "card_entry": "MSR",
+                    "portador": "MOVISTAR",
+                    "serial_number": "N860W104928",
+                    "sim_id": "8956028200158978295F",
+                    "version_app": "2.0.10.qa"
+                },
+                "POSrequest": {
+                    "idPago": "4dca344f-2a44-4b46-a9e9-d1c563052c51",
+                    "additionalInfo": "& 0000700390! B200158 7FF9000080000004800189B6B5B97CF1D5C7000000000800000000000000198004D91521522210280069BE9B1200180110A04003220000000000000000000000FF0000000000000000000000000000! B400020 9015000042030015080 ! B300080 CF000W104928A060C8000000000000002200024203000007A0000000041010000000000000000000! C400012 000000020233! S400046 0100205A0855920221001153669F6E0701520000303000! P700002 D ",
+                    "captureDate": "1028",
+                    "currencyCode": "152",
+                    "datosComercio": {
+                        "ciudadComercio": "Santiago",
+                        "clientAppOrg": "Compraqui",
+                        "dv": "8",
+                        "idComercio": "159024002672",
+                        "MCC": "7230",
+                        "paisComercio": "Chile",
+                        "rut": "15902400"
+                    },
+                    "datosPago": {
+                        "cuotas": "00",
+                        "iva": 0,
+                        "monto": 2000,
+                        "neto": 0,
+                        "tipoComprobante": "Boleta exenta",
+                        "totalExento": 2000
+                    },
+                    "datosSucursal": {
+                        "regionSucursal": "Sin Region"
+                    },
+                    "datosTarjeta": {
+                        "abreviatura": "VI",
+                        "bin": "621996",
+                        "cardEntryMode": "901",
+                        "conditionCode": "00",
+                        "fourDigits": "9010",
+                        "invoiceData": "1",
+                        "marca": "VISA",
+                        "tipo": "D"
+                    },
+                    "fecha": "2024-01-09:16:40:48.916",
+                    "fechaAnulacion": null,
+                    "fechaUTC": "2024-01-09:16:40:48.916",
+                    "idTerminal": "VTY00001",
+                    "infoAdicionalPOS": {
+                        "bins": {
+                            "date_file": "-",
+                            "date_update": "-",
+                            "record_count": 1530,
+                            "version": 0
+                        },
+                        "canal": "RED_MOVIL",
+                        "card_entry": "MSR",
+                        "portador": "MOVISTAR",
+                        "serial_number": "N860W104928",
+                        "sim_id": "8956028200158978295F",
+                        "version_app": "2.0.10.qa"
+                    },
+                    "rrn": "${formattedThreadNum}",
+                    "secureFields": {
+                        "pinBlock": "94D32B23781CF921",
+                        "pinblockKsn": "FFFFFF982821420009D2",
+                        "track2": "AF58722319CBEFE4E84960B12EE7E20B46CEBF49880742CC920D7224546AC9C2",
+                        "track2ksn": "FFFFFF982821420009D1"
+                    },
+                    "tipoOperacion": "MPURCHASE",
+                    "total": 0
+                },
+                "requestSent": {
+                    "OPRequest": {
+                        "Security": {
+                            "EncryptedKey": {
+                                "CipherData": {
+                                    "CipherValue": "q/GpUtn5iB/1raYz4O9LJ4N92WYuCUyk6fOWSmxtMvsqGlzD7JZBvCFM6AzXNiH3kXunzxUp8UMVxdpUSpTNLBYwlkuqSuYKAuRZSIQagElshE22jQesPeH2oeqmkm1TE3ZSiVFqVVb+Y8B1KTjkf2+59iR22PWJSLbMXuoKYd+HdyeekudomAYsdIpqm+Zw0odx8kCuOlVAkBVYG6dGr2+ajw/7bOuiujlQMPHL7+WKreIkc+JUFmDpKyoRRDrGtI37lNBIP7fNw4s4ZGA6tTWWn4Qemu980sUzJ/9R0Lo/mgcvyP9IJ1QNY2KV0h3a4Y3DI1NrdbJPfSPDYKXaXw=="
+                                },
+                                "EncryptionMethod": {
+                                    "Algorithm": "rsa-1_5"
+                                },
+                                "KeyInfo": {
+                                    "SecurityTokenReference": {
+                                        "KeyIdentifier": {
+                                            "EncodingType": "Base64Binary",
+                                            "Value": "jdCjOS9nlze8pqzqx+5mh4yIqms=",
+                                            "ValueType": "X509SubjectKeyIdentifier"
+                                        }
+                                    }
+                                },
+                                "ReferenceList": {
+                                    "DataReference": {
+                                        "Field": "track2"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "opSvcRqBody": {
+                        "acqInstID": "00000000000",
+                        "additionalInfo": "& 0000700390! B200158 7FF9000080000004800189B6B5B97CF1D5C7000000000800000000000000198004D91521522210280069BE9B1200180110A04003220000000000000000000000FF0000000000000000000000000000! B400020 9015000042030015080 ! B300080 CF000W104928A060C8000000000000002200024203000007A0000000041010000000000000000000! C400012 000000020233! S400046 0100205A0855920221001153669F6E0701520000303000! P700002 D ",
+                        "altMerchID": "CH",
+                        "amount": {
+                            "currencyCode": "152",
+                            "decimalPosition": "2",
+                            "value": 2000
+                        },
+                        "cardAcceptor": {
+                            "address": {
+                                "city": "Santiago",
+                                "countryCode": "CL"
+                            },
+                            "cardAcceptorID": "000000000159024002672",
+                            "cardAcceptorIDCode": "000000000159024002672",
+                            "cardAcceptorName": "Transbank POS Móvil",
+                            "merchantCategoryCode": "7230"
+                        },
+                        "cardEntryMode": "901",
+                        "codigoOperacion": "0100",
+                        "cuit": "159024008",
+                        "fechas": {
+                            "captureDate": "2024-01-09",
+                            "fechLocal": "2024-01-09T16:40:48.916",
+                            "fechUTCTimestamp": "2024-01-09T19:40:48.916Z"
+                        },
+                        "forwardingInstID": "00000000000",
+                        "posInfo": {
+                            "cardPresent": "S",
+                            "posEntryMode": "801"
+                        },
+                        "primaryAccNumber": {
+                            "pan": "6219960402279010"
+                        },
+                        "procCode": "000000",
+                        "procCodeFinal": "000000",
+                        "retrievalReferenceNumber": "200910205",
+                        "secureFields": {
+                            "emvInfo": "sfePQcXP0QsHfM6eUKe4p3zKAtBWTTzJ4HePv3SuZIZ4MGY2iVVRMXXllT44HLjolY1w2s/8MLgS6DvhB5m8Fkf7OkdPCkvm8oioD5j5cvhAEfmMKerUkKBFJdAVKnuh4rNgcgoWkC/xE2eElNHfrvmrQtk6Voz8Di2qSCEuWgrr9J23EKUqA9cT7rGwbYN7Qmj5OTrx0xjCe55KFYeeExoATrcoTHXRYql8IdIgW+4sFPTUSI1ltXBbB3ZZ9ZG4pmOItgoSwMPvmLRaZ0b61fSSXzXa6f1uohk5BBX85TP1vN4TLjM/yUs3wU0VMwihD3E4ex9ixMNhEayhKr0slJ8hDlF7bdBRcT8BGB40D4BFjb82ppqSV+2LRQXx7At9Y0fZcLcbNr6kW2iC0CPuCSje6oM0blPqKL7NTSn1TKzvY6z34H7STuLbt15I91JdoaZ9LD4pa5lfJvPzzm12o7I9mheFBhKSPjREy8ux85Bvl00iXIz8VSRcqVwKaCVqRa69uM6MbwhnMbpdmhihCw2YJKiCeyP4YgH3yLE8p/2T3oEx9Jg+M/8="
+                        },
+                        "terminalID": "VTY00001",
+                        "terminalType": "POS",
+                        "track2Data": {
+                            "encryptedData": "AF58722319CBEFE4E84960B12EE7E20B46CEBF49880742CC920D7224546AC9C2",
+                            "ksn": "FFFFFF982821420009D1"
+                        }
+                    }
+                }
+            }
+        ],
+        "mediosDePago": {
+            "ciudadComercio": "Santiago",
+            "clientAppOrg": "Compraqui",
+            "dv": "8",
+            "idComercio": "159024002672",
+            "mcc": "7230",
+            "paisComercio": "Chile",
+            "rut": "15902400"
+        },
+        "numCuota": "00",
+        "numSerie": "N860W104928",
+        "numSerieEstado": "N860W104928|RECHAZADO_PAGO",
+        "numSerieStatus": "N860W104928|RECHAZADO_PAGO",
+        "offuscatedAmount": 0,
+        "status": "RECHAZADO_PAGO",
+        "userId": "compraaqui",
+        "voidDate": null
     },
     {
-        "UTCTimeFormat": "2024-07-24:23:25:29.654",
-        "additionalInfo": "\u0026 0000700366! B200160 7FF900008000000000009E534473D576BD732000000028100000000000002000001015215224072400E6A9F72B000706010A03A0200000000000000000000000000000000000000000000000000000! B400022 071510013F000015080 ! B300082 CF000W104942E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400014 000000020235! S400022 0100079F6E0420700002! P700004 C ",
-        "attendant": "2",
-        "currencyCode": "152",
+        "idPago": "5c1e526d-df16-4b6a-a59f-50dfeff0863b",
+        "codigoAutorizacion": "sin código",
         "datosComercio": {
-            "MCC": "5499",
-            "ciudadComercio": "Valdivia",
-            "clientAppOrg": "Registro venta masiva",
-            "comunaComercio": "Valdivia",
-            "dv": "1",
-            "idComercio": "876065401678",
+            "ciudadComercio": "Santiago",
+            "clientAppOrg": "Compraqui",
+            "dv": "8",
+            "idComercio": "159024002672",
+            "MCC": "7230",
             "paisComercio": "Chile",
-            "rut": "87606542"
+            "rut": "15902400"
         },
         "datosPago": {
-            "cuotas": 2,
-            "iva": 412,
-            "monto": 2830,
-            "monto_s_prop": 2565,
-            "neto": 2155,
-            "propina": 270,
-            "tipoComprobante": "Boleta afecta",
-            "tipoCuota": "2",
-            "totalExento": 0,
-            "vuelto": 20
+            "cuotas": "00",
+            "iva": 0,
+            "monto": 2000,
+            "neto": 0,
+            "tipoComprobante": "Boleta exenta",
+            "totalExento": 2000
         },
         "datosSucursal": {
-            "comunaSucursal": "Valdivia",
-            "direccionSucursal": "Independencia   457",
-            "idSucursal": "a3Z8L000000HJPNUA6",
-            "idSucursalOP": "876065400707",
-            "nombreSucursal": "pruebavmasiva49@yopmail.com",
-            "paisSucursal": "Chile",
-            "regionSucursal": "Los Rios"
+            "regionSucursal": "Sin Region"
         },
         "datosTarjeta": {
-            "bin": "496619",
             "abreviatura": "VI",
+            "bin": "621996",
+            "cardEntryMode": "901",
+            "conditionCode": "00",
+            "fourDigits": "9010",
+            "invoiceData": "1",
             "marca": "VISA",
-            "cardEntryMode": "073",
-            "cardSeqNumb": "03",
-            "tipo": "E",
-            "conditionCode": "02",
-            "fourDigits": "1845",
-            "invoiceData": "55557"
+            "tipo": "D"
         },
-        "idPago": "18be62f8-36d2-46a9-9e30-cc7c1f220266",
-        "idTerminal": "n005cs25",
-        "infoAdicional": {
-            "canal": "RED_MOVIL",
-            "card_entry": "CTLS",
-            "portador": "ENTEL",
-            "serial_number": "N860W104942",
-            "sim_id": "89560100001257725570",
-            "version_app": "3.0.5.dev",
+        "diaNumSerie": "2024-01-09|N860W104928",
+        "diaNumSerieEstado": "2024-01-09|N860W104928|RECHAZADO_PAGO",
+        "estado": "RECHAZADO_PAGO",
+        "fecha": "2024-02-06:16:40:48.916",
+        "fechaAnulacion": null,
+        "fechaDia": "2024-02-06",
+        "fechaUTC": "2024-02-06:16:40:48.916",
+        "idComercio": "159024002672",
+        "idTerminal": "VTY00001",
+        "infoAdicionalPOS": {
             "bins": {
-                "date_file": "14-01-2023",
-                "date_update": "14-01-2023",
-                "record_count": 1532,
-                "version": 5
+                "date_file": "-",
+                "date_update": "-",
+                "record_count": 1530,
+                "version": 0
             },
-            "emv_aid": {
-                "date_file": "03-01-2000",
-                "date_update": "03-01-2000",
-                "version": 1
-            },
-            "emv_capk": {
-                "date_file": "03-01-2000",
-                "date_update": "03-01-2000",
-                "version": 1
-            },
-            "errors": {
-                "date_file": "17-02-2023",
-                "date_update": "17-02-2023",
-                "version": 2
-            },
-            "propinaActiva": false
+            "canal": "RED_MOVIL",
+            "card_entry": "MSR",
+            "portador": "MOVISTAR",
+            "serial_number": "N860W104928",
+            "sim_id": "8956028200158978295F",
+            "version_app": "2.0.10.qa"
         },
-        "localDate": "0724",
-        "localTime": "192529",
-        "localTimeFormat": "2024-07-24:19:25:29.654",
-        "millisecDate": "1721863729654",
-        "ocAlianza": "NA",
-        "rrn": "374896649158",
-        "secureFields": {
-            "track2": "F51A5F110A09BAD29B77A9BBAF055EB4535F45EF86C043DDACCC9CF959B9B42985345DE6CF4F7D8C",
-            "track2ksn": "FFFFFF98282142000253"
-        }
-    },
-    {
-        "UTCTimeFormat": "2024-07-24:23:25:45.789",
-        "additionalInfo": "\u0026 0000700367! B200161 7FF900008000000000009E534473D576BD733000000028100000000000002000001015215224072400E6A9F72B000706010A03A0200000000000000000000000000000000000000000000000000000! B400023 071510013F000015080 ! B300083 CF000W104943E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400015 000000020236! S400023 0100079F6E0420700003! P700005 C ",
-        "attendant": "3",
-        "currencyCode": "152",
-        "datosComercio": {
-            "MCC": "5499",
-            "ciudadComercio": "Valdivia",
-            "clientAppOrg": "Registro venta masiva",
-            "comunaComercio": "Valdivia",
-            "dv": "1",
-            "idComercio": "876065401679",
+        "log": [
+            {
+                "idPago": "5c1e526d-df16-4b6a-a59f-50dfeff0863b",
+                "estado": "RECHAZADO_PAGO",
+                "fechas": {
+                    "fechaAnulacion": null,
+                    "fechaAPILocal": "2024-01-09:16:40:48.598",
+                    "fechaAPIUTC": "2024-01-09:19:40:48.598",
+                    "fechaPOSLocal": "2024-01-09:16:40:48.916",
+                    "fechaPOSUTC": "2024-01-09:16:40:48.916"
+                },
+                "infoAdicionalPOS": {
+                    "bins": {
+                        "date_file": "-",
+                        "date_update": "-",
+                        "record_count": 1530,
+                        "version": 0
+                    },
+                    "canal": "RED_MOVIL",
+                    "card_entry": "MSR",
+                    "portador": "MOVISTAR",
+                    "serial_number": "N860W104928",
+                    "sim_id": "8956028200158978295F",
+                    "version_app": "2.0.10.qa"
+                },
+                "POSrequest": {
+                    "idPago": "5c1e526d-df16-4b6a-a59f-50dfeff0863b",
+                    "additionalInfo": "& 0000700390! B200158 7FF9000080000004800189B6B5B97CF1D5C7000000000800000000000000198004D91521522210280069BE9B1200180110A04003220000000000000000000000FF0000000000000000000000000000! B400020 9015000042030015080 ! B300080 CF000W104928A060C8000000000000002200024203000007A0000000041010000000000000000000! C400012 000000020233! S400046 0100205A0855920221001153669F6E0701520000303000! P700002 D ",
+                    "altMerchID": "CH",
+                    "amount": {
+                        "currencyCode": "152",
+                        "decimalPosition": "2",
+                        "value": 2000
+                    },
+                    "cardAcceptor": {
+                        "address": {
+                            "city": "Santiago",
+                            "countryCode": "CL"
+                        },
+                        "cardAcceptorID": "000000000159024002672",
+                        "cardAcceptorIDCode": "000000000159024002672",
+                        "cardAcceptorName": "Transbank POS Móvil",
+                        "merchantCategoryCode": "7230"
+                    },
+                    "cardEntryMode": "901",
+                    "codigoOperacion": "0100",
+                    "cuit": "159024008",
+                    "fechas": {
+                        "captureDate": "2024-01-09",
+                        "fechLocal": "2024-01-09T16:40:48.916",
+                        "fechUTCTimestamp": "2024-01-09T19:40:48.916Z"
+                    },
+                    "forwardingInstID": "00000000000",
+                    "posInfo": {
+                        "cardPresent": "S",
+                        "posEntryMode": "801"
+                    },
+                    "primaryAccNumber": {
+                        "pan": "6219960402279010"
+                    },
+                    "procCode": "000000",
+                    "procCodeFinal": "000000",
+                    "retrievalReferenceNumber": "200910205",
+                    "secureFields": {
+                        "emvInfo": "sfePQcXP0QsHfM6eUKe4p3zKAtBWTTzJ4HePv3SuZIZ4MGY2iVVRMXXllT44HLjolY1w2s/8MLgS6DvhB5m8Fkf7OkdPCkvm8oioD5j5cvhAEfmMKerUkKBFJdAVKnuh4rNgcgoWkC/xE2eElNHfrvmrQtk6Voz8Di2qSCEuWgrr9J23EKUqA9cT7rGwbYN7Qmj5OTrx0xjCe55KFYeeExoATrcoTHXRYql8IdIgW+4sFPTUSI1ltXBbB3ZZ9ZG4pmOItgoSwMPvmLRaZ0b61fSSXzXa6f1uohk5BBX85TP1vN4TLjM/yUs3wU0VMwihD3E4ex9ixMNhEayhKr0slJ8hDlF7bdBRcT8BGB40D4BFjb82ppqSV+2LRQXx7At9Y0fZcLcbNr6kW2iC0CPuCSje6oM0blPqKL7NTSn1TKzvY6z34H7STuLbt15I91JdoaZ9LD4pa5lfJvPzzm12o7I9mheFBhKSPjREy8ux85Bvl00iXIz8VSRcqVwKaCVqRa69uM6MbwhnMbpdmhihCw2YJKiCeyP4YgH3yLE8p/2T3oEx9Jg+M/8="
+                    },
+                    "terminalID": "VTY00001",
+                    "terminalType": "POS",
+                    "track2Data": {
+                        "encryptedData": "AF58722319CBEFE4E84960B12EE7E20B46CEBF49880742CC920D7224546AC9C2",
+                        "ksn": "FFFFFF982821420009D1"
+                    }
+                }
+            }
+        ],
+        "mediosDePago": {
+            "ciudadComercio": "Santiago",
+            "clientAppOrg": "Compraqui",
+            "dv": "8",
+            "idComercio": "159024002672",
+            "mcc": "7230",
             "paisComercio": "Chile",
-            "rut": "87606543"
+            "rut": "15902400"
         },
-        "datosPago": {
-            "cuotas": 3,
-            "iva": 415,
-            "monto": 2840,
-            "monto_s_prop": 2570,
-            "neto": 2160,
-            "propina": 275,
-            "tipoComprobante": "Boleta afecta",
-            "tipoCuota": "3",
-            "totalExento": 0,
-            "vuelto": 30
-        },
-        "datosSucursal": {
-            "comunaSucursal": "Valdivia",
-            "direccionSucursal": "Independencia   458",
-            "idSucursal": "a3Z8L000000HJPNUA7",
-            "idSucursalOP": "876065400708",
-            "nombreSucursal": "pruebavmasiva50@yopmail.com",
-            "paisSucursal": "Chile",
-            "regionSucursal": "Los Rios"
-        },
-        "datosTarjeta": {
-            "bin": "496620",
-            "abreviatura": "VI",
-            "marca": "VISA",
-            "cardEntryMode": "074",
-            "cardSeqNumb": "04",
-            "tipo": "F",
-            "conditionCode": "03",
-            "fourDigits": "1846",
-            "invoiceData": "55558"
-        },
-        "idPago": "18be62f8-36d2-46a9-9e30-cc7c1f220267",
-        "idTerminal": "n005cs26",
-        "infoAdicional": {
-            "canal": "RED_MOVIL",
-            "card_entry": "CTLS",
-            "portador": "ENTEL",
-            "serial_number": "N860W104943",
-            "sim_id": "89560100001257725571",
-            "version_app": "3.0.6.dev",
-            "bins": {
-                "date_file": "15-01-2023",
-                "date_update": "15-01-2023",
-                "record_count": 1533,
-                "version": 6
-            },
-            "emv_aid": {
-                "date_file": "04-01-2000",
-                "date_update": "04-01-2000",
-                "version": 1
-            },
-            "emv_capk": {
-                "date_file": "04-01-2000",
-                "date_update": "04-01-2000",
-                "version": 1
-            },
-            "errors": {
-                "date_file": "18-02-2023",
-                "date_update": "18-02-2023",
-                "version": 3
-            },
-            "propinaActiva": false
-        },
-        "localDate": "0724",
-        "localTime": "192545",
-        "localTimeFormat": "2024-07-24:19:25:45.789",
-        "millisecDate": "1721863745789",
-        "ocAlianza": "NA",
-        "rrn": "374896649159",
-        "secureFields": {
-            "track2": "F51A5F110A09BAD29B77A9BBAF055EB4535F45EF86C043DDACCC9CF959B9B42985345DE6CF4F7D8D",
-            "track2ksn": "FFFFFF98282142000254"
-        }
-    },
-    {
-        "UTCTimeFormat": "2024-07-24:23:26:01.923",
-        "additionalInfo": "\u0026 0000700368! B200162 7FF900008000000000009E534473D576BD734000000028100000000000002000001015215224072400E6A9F72B000706010A03A0200000000000000000000000000000000000000000000000000000! B400024 071510013F000015080 ! B300084 CF000W104944E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400016 000000020237! S400024 0100079F6E0420700004! P700006 C ",
-        "attendant": "4",
-        "currencyCode": "152",
-        "datosComercio": {
-            "MCC": "5499",
-            "ciudadComercio": "Valdivia",
-            "clientAppOrg": "Registro venta masiva",
-            "comunaComercio": "Valdivia",
-            "dv": "1",
-            "idComercio": "876065401680",
-            "paisComercio": "Chile",
-            "rut": "87606544"
-        },
-        "datosPago": {
-            "cuotas": 4,
-            "iva": 418,
-            "monto": 2850,
-            "monto_s_prop": 2580,
-            "neto": 2165,
-            "propina": 280,
-            "tipoComprobante": "Boleta afecta",
-            "tipoCuota": "4",
-            "totalExento": 0,
-            "vuelto": 40
-        },
-        "datosSucursal": {
-            "comunaSucursal": "Valdivia",
-            "direccionSucursal": "Independencia   459",
-            "idSucursal": "a3Z8L000000HJPNUA8",
-            "idSucursalOP": "876065400709",
-            "nombreSucursal": "pruebavmasiva51@yopmail.com",
-            "paisSucursal": "Chile",
-            "regionSucursal": "Los Rios"
-        },
-        "datosTarjeta": {
-            "bin": "496621",
-            "abreviatura": "VI",
-            "marca": "VISA",
-            "cardEntryMode": "075",
-            "cardSeqNumb": "05",
-            "tipo": "G",
-            "conditionCode": "04",
-            "fourDigits": "1847",
-            "invoiceData": "55559"
-        },
-        "idPago": "18be62f8-36d2-46a9-9e30-cc7c1f220268",
-        "idTerminal": "n005cs27",
-        "infoAdicional": {
-            "canal": "RED_MOVIL",
-            "card_entry": "CTLS",
-            "portador": "ENTEL",
-            "serial_number": "N860W104944",
-            "sim_id": "89560100001257725572",
-            "version_app": "3.0.7.dev",
-            "bins": {
-                "date_file": "16-01-2023",
-                "date_update": "16-01-2023",
-                "record_count": 1534,
-                "version": 7
-            },
-            "emv_aid": {
-                "date_file": "05-01-2000",
-                "date_update": "05-01-2000",
-                "version": 1
-            },
-            "emv_capk": {
-                "date_file": "05-01-2000",
-                "date_update": "05-01-2000",
-                "version": 1
-            },
-            "errors": {
-                "date_file": "19-02-2023",
-                "date_update": "19-02-2023",
-                "version": 4
-            },
-            "propinaActiva": true
-        },
-        "localDate": "0724",
-        "localTime": "192601",
-        "localTimeFormat": "2024-07-24:19:26:01.923",
-        "millisecDate": "1721863761923",
-        "ocAlianza": "NA",
-        "rrn": "374896649160",
-        "secureFields": {
-            "track2": "F51A5F110A09BAD29B77A9BBAF055EB4535F45EF86C043DDACCC9CF959B9B42985345DE6CF4F7D8E",
-            "track2ksn": "FFFFFF98282142000255"
-        }
-    },
-    {
-        "UTCTimeFormat": "2024-07-24:23:26:17.234",
-        "additionalInfo": "\u0026 0000700369! B200163 7FF900008000000000009E534473D576BD735000000028100000000000002000001015215224072400E6A9F72B000706010A03A0200000000000000000000000000000000000000000000000000000! B400025 071510013F000015080 ! B300085 CF000W104945E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400017 000000020238! S400025 0100079F6E0420700005! P700007 C ",
-        "attendant": "5",
-        "currencyCode": "152",
-        "datosComercio": {
-            "MCC": "5499",
-            "ciudadComercio": "Valdivia",
-            "clientAppOrg": "Registro venta masiva",
-            "comunaComercio": "Valdivia",
-            "dv": "1",
-            "idComercio": "876065401681",
-            "paisComercio": "Chile",
-            "rut": "87606545"
-        },
-        "datosPago": {
-            "cuotas": 5,
-            "iva": 420,
-            "monto": 2860,
-            "monto_s_prop": 2585,
-            "neto": 2170,
-            "propina": 290,
-            "tipoComprobante": "Boleta afecta",
-            "tipoCuota": "5",
-            "totalExento": 0,
-            "vuelto": 50
-        },
-        "datosSucursal": {
-            "comunaSucursal": "Valdivia",
-            "direccionSucursal": "Independencia   460",
-            "idSucursal": "a3Z8L000000HJPNUA9",
-            "idSucursalOP": "876065400710",
-            "nombreSucursal": "pruebavmasiva52@yopmail.com",
-            "paisSucursal": "Chile",
-            "regionSucursal": "Los Rios"
-        },
-        "datosTarjeta": {
-            "bin": "496622",
-            "abreviatura": "VI",
-            "marca": "VISA",
-            "cardEntryMode": "076",
-            "cardSeqNumb": "06",
-            "tipo": "H",
-            "conditionCode": "05",
-            "fourDigits": "1848",
-            "invoiceData": "55560"
-        },
-        "idPago": "18be62f8-36d2-46a9-9e30-cc7c1f220269",
-        "idTerminal": "n005cs28",
-        "infoAdicional": {
-            "canal": "RED_MOVIL",
-            "card_entry": "CTLS",
-            "portador": "ENTEL",
-            "serial_number": "N860W104945",
-            "sim_id": "89560100001257725573",
-            "version_app": "3.0.8.dev",
-            "bins": {
-                "date_file": "17-01-2023",
-                "date_update": "17-01-2023",
-                "record_count": 1535,
-                "version": 8
-            },
-            "emv_aid": {
-                "date_file": "06-01-2000",
-                "date_update": "06-01-2000",
-                "version": 1
-            },
-            "emv_capk": {
-                "date_file": "06-01-2000",
-                "date_update": "06-01-2000",
-                "version": 1
-            },
-            "errors": {
-                "date_file": "20-02-2023",
-                "date_update": "20-02-2023",
-                "version": 5
-            },
-            "propinaActiva": true
-        },
-        "localDate": "0724",
-        "localTime": "192617",
-        "localTimeFormat": "2024-07-24:19:26:17.234",
-        "millisecDate": "1721863777234",
-        "ocAlianza": "NA",
-        "rrn": "374896649161",
-        "secureFields": {
-            "track2": "F51A5F110A09BAD29B77A9BBAF055EB4535F45EF86C043DDACCC9CF959B9B42985345DE6CF4F7D8E",
-            "track2ksn": "FFFFFF98282142000256"
-        }
+        "numCuota": "00",
+        "numSerie": "N860W104928",
+        "numSerieEstado": "N860W104928|RECHAZADO_PAGO",
+        "numSerieStatus": "N860W104928|RECHAZADO_PAGO",
+        "offuscatedAmount": 0,
+        "status": "RECHAZADO_PAGO",
+        "userId": "compraaqui",
+        "voidDate": null
     }
 ]
