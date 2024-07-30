@@ -9,7 +9,7 @@ init_python_container() {
     warning "Inicializando Python Container"
     breakline
     docker-compose down --volumes all --remove-orphans
-    docker-compose up --build -d || {
+    docker-compose up --build -d --remove-orphans || {
         critical_error "Error al inicializar container python"
     }
     breakline
@@ -50,7 +50,7 @@ init_suit_local_up() {
     breakline
     source_env_vars ".env"
     docker-compose -f ./infrastructure/docker/docker-compose.yml down --volumes all --remove-orphans
-    docker-compose -f ./infrastructure/docker/docker-compose.yml up --build -d || {
+    docker-compose -f ./infrastructure/docker/docker-compose.yml up --build -d --remove-orphans || {
         critical_error "Error al orquestar infrastructure/docker/docker-compose.yml"
     }
     breakline

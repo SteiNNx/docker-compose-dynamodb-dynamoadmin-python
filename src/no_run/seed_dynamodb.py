@@ -98,31 +98,27 @@ def insert_data_to_dynamodb(dynamodb_client, table_name, data):
                 TableName=table_name,
                 Item={
                     'idPago': {'S': record['idPago']},
-                    'UTCTimeFormat': {'S': record['UTCTimeFormat']},
-                    'additionalInfo': {'S': record['additionalInfo']},
                     'attendant': {'S': record['attendant']},
-                    'currencyCode': {'S': record['currencyCode']},
+                    'codigoAutorizacion': {'S': record.get('codigoAutorizacion', '')},
                     'datosComercio': {'M': {
-                        'MCC': {'S': record['datosComercio']['MCC']},
                         'ciudadComercio': {'S': record['datosComercio']['ciudadComercio']},
                         'clientAppOrg': {'S': record['datosComercio']['clientAppOrg']},
                         'comunaComercio': {'S': record['datosComercio']['comunaComercio']},
                         'dv': {'S': record['datosComercio']['dv']},
                         'idComercio': {'S': record['datosComercio']['idComercio']},
+                        'MCC': {'S': record['datosComercio']['MCC']},
                         'paisComercio': {'S': record['datosComercio']['paisComercio']},
                         'rut': {'S': record['datosComercio']['rut']}
                     }},
                     'datosPago': {'M': {
-                        'cuotas': {'N': str(record['datosPago']['cuotas'])},
+                        'cuotas': {'S': record['datosPago']['cuotas']},
                         'iva': {'N': str(record['datosPago']['iva'])},
                         'monto': {'N': str(record['datosPago']['monto'])},
-                        'monto_s_prop': {'N': str(record['datosPago']['monto_s_prop'])},
                         'neto': {'N': str(record['datosPago']['neto'])},
                         'propina': {'N': str(record['datosPago']['propina'])},
                         'tipoComprobante': {'S': record['datosPago']['tipoComprobante']},
                         'tipoCuota': {'S': record['datosPago']['tipoCuota']},
-                        'totalExento': {'N': str(record['datosPago']['totalExento'])},
-                        'vuelto': {'N': str(record['datosPago']['vuelto'])}
+                        'totalExento': {'N': str(record['datosPago']['totalExento'])}
                     }},
                     'datosSucursal': {'M': {
                         'comunaSucursal': {'S': record['datosSucursal']['comunaSucursal']},
@@ -134,53 +130,98 @@ def insert_data_to_dynamodb(dynamodb_client, table_name, data):
                         'regionSucursal': {'S': record['datosSucursal']['regionSucursal']}
                     }},
                     'datosTarjeta': {'M': {
-                        'bin': {'S': record['datosTarjeta']['bin']},
                         'abreviatura': {'S': record['datosTarjeta']['abreviatura']},
-                        'marca': {'S': record['datosTarjeta']['marca']},
+                        'bin': {'S': record['datosTarjeta']['bin']},
                         'cardEntryMode': {'S': record['datosTarjeta']['cardEntryMode']},
                         'cardSeqNumb': {'S': record['datosTarjeta']['cardSeqNumb']},
-                        'tipo': {'S': record['datosTarjeta']['tipo']},
                         'conditionCode': {'S': record['datosTarjeta']['conditionCode']},
                         'fourDigits': {'S': record['datosTarjeta']['fourDigits']},
-                        'invoiceData': {'S': record['datosTarjeta']['invoiceData']}
+                        'invoiceData': {'S': record['datosTarjeta']['invoiceData']},
+                        'marca': {'S': record['datosTarjeta']['marca']},
+                        'tipo': {'S': record['datosTarjeta']['tipo']}
                     }},
+                    'diaNumSerie': {'S': record.get('diaNumSerie', '')},
+                    'diaNumSerieEstado': {'S': record.get('diaNumSerieEstado', '')},
+                    'estado': {'S': record['estado']},
+                    'fecha': {'S': record['fecha']},
+                    'fechaAnulacion': {'NULL': True} if record['fechaAnulacion'] is None else {'S': record['fechaAnulacion']},
+                    'fechaDia': {'S': record['fechaDia']},
+                    'fechaUTC': {'S': record['fechaUTC']},
+                    'idComercio': {'S': record['idComercio']},
                     'idTerminal': {'S': record['idTerminal']},
-                    'infoAdicional': {'M': {
-                        'canal': {'S': record['infoAdicional']['canal']},
-                        'card_entry': {'S': record['infoAdicional']['card_entry']},
-                        'portador': {'S': record['infoAdicional']['portador']},
-                        'serial_number': {'S': record['infoAdicional']['serial_number']},
-                        'sim_id': {'S': record['infoAdicional']['sim_id']},
-                        'version_app': {'S': record['infoAdicional']['version_app']},
+                    'infoAdicionalPOS': {'M': {
                         'bins': {'M': {
-                            'date_file': {'S': record['infoAdicional']['bins']['date_file']},
-                            'date_update': {'S': record['infoAdicional']['bins']['date_update']},
-                            'record_count': {'N': str(record['infoAdicional']['bins']['record_count'])},
-                            'version': {'N': str(record['infoAdicional']['bins']['version'])}
+                            'date_file': {'S': record['infoAdicionalPOS']['bins']['date_file']},
+                            'date_update': {'S': record['infoAdicionalPOS']['bins']['date_update']},
+                            'record_count': {'N': str(record['infoAdicionalPOS']['bins']['record_count'])},
+                            'version': {'N': str(record['infoAdicionalPOS']['bins']['version'])}
                         }},
+                        'canal': {'S': record['infoAdicionalPOS']['canal']},
+                        'card_entry': {'S': record['infoAdicionalPOS']['card_entry']},
                         'emv_aid': {'M': {
-                            'date_file': {'S': record['infoAdicional']['emv_aid']['date_file']},
-                            'date_update': {'S': record['infoAdicional']['emv_aid']['date_update']},
-                            'version': {'N': str(record['infoAdicional']['emv_aid']['version'])}
+                            'date_file': {'S': record['infoAdicionalPOS']['emv_aid']['date_file']},
+                            'date_update': {'S': record['infoAdicionalPOS']['emv_aid']['date_update']},
+                            'version': {'N': str(record['infoAdicionalPOS']['emv_aid']['version'])}
                         }},
                         'emv_capk': {'M': {
-                            'date_file': {'S': record['infoAdicional']['emv_capk']['date_file']},
-                            'date_update': {'S': record['infoAdicional']['emv_capk']['date_update']},
-                            'version': {'N': str(record['infoAdicional']['emv_capk']['version'])}
+                            'date_file': {'S': record['infoAdicionalPOS']['emv_capk']['date_file']},
+                            'date_update': {'S': record['infoAdicionalPOS']['emv_capk']['date_update']},
+                            'version': {'N': str(record['infoAdicionalPOS']['emv_capk']['version'])}
                         }},
                         'errors': {'M': {
-                            'date_file': {'S': record['infoAdicional']['errors']['date_file']},
-                            'date_update': {'S': record['infoAdicional']['errors']['date_update']},
-                            'version': {'N': str(record['infoAdicional']['errors']['version'])}
+                            'date_file': {'S': record['infoAdicionalPOS']['errors']['date_file']},
+                            'date_update': {'S': record['infoAdicionalPOS']['errors']['date_update']},
+                            'version': {'N': str(record['infoAdicionalPOS']['errors']['version'])}
                         }},
-                        'propinaActiva': {'BOOL': record['infoAdicional']['propinaActiva']}
+                        'portador': {'S': record['infoAdicionalPOS']['portador']},
+                        'propinaActiva': {'BOOL': record['infoAdicionalPOS']['propinaActiva']},
+                        'serial_number': {'S': record['infoAdicionalPOS']['serial_number']},
+                        'sim_id': {'S': record['infoAdicionalPOS']['sim_id']},
+                        'version_app': {'S': record['infoAdicionalPOS']['version_app']}
                     }},
-                    'localDate': {'S': record['localDate']},
-                    'localTime': {'S': record['localTime']},
-                    'localTimeFormat': {'S': record['localTimeFormat']},
-                    'millisecDate': {'S': record['millisecDate']},
-                    'ocAlianza': {'S': record['ocAlianza']},
-                    'rrn': {'S': record['rrn']}
+                    'log': {'L': [
+                        {'M': {
+                            'idPago': {'S': log_entry['idPago']},
+                            'estado': {'S': log_entry['estado']},
+                            'fechas': {'M': {
+                                'fechaAnulacion': {'NULL': True} if log_entry['fechas']['fechaAnulacion'] is None else {'S': log_entry['fechas']['fechaAnulacion']},
+                                'fechaAPILocal': {'S': log_entry['fechas']['fechaAPILocal']},
+                                'fechaAPIUTC': {'S': log_entry['fechas']['fechaAPIUTC']},
+                                'fechaPOSLocal': {'S': log_entry['fechas']['fechaPOSLocal']},
+                                'fechaPOSUTC': {'S': log_entry['fechas']['fechaPOSUTC']}
+                            }},
+                            'infoAdicionalPOS': {'M': {
+                                'bins': {'M': {
+                                    'date_file': {'S': log_entry['infoAdicionalPOS']['bins']['date_file']},
+                                    'date_update': {'S': log_entry['infoAdicionalPOS']['bins']['date_update']},
+                                    'record_count': {'N': str(log_entry['infoAdicionalPOS']['bins']['record_count'])},
+                                    'version': {'N': str(log_entry['infoAdicionalPOS']['bins']['version'])}
+                                }},
+                                'canal': {'S': log_entry['infoAdicionalPOS']['canal']},
+                                'card_entry': {'S': log_entry['infoAdicionalPOS']['card_entry']},
+                                'emv_aid': {'M': {
+                                    'date_file': {'S': log_entry['infoAdicionalPOS']['emv_aid']['date_file']},
+                                    'date_update': {'S': log_entry['infoAdicionalPOS']['emv_aid']['date_update']},
+                                    'version': {'N': str(log_entry['infoAdicionalPOS']['emv_aid']['version'])}
+                                }},
+                                'emv_capk': {'M': {
+                                    'date_file': {'S': log_entry['infoAdicionalPOS']['emv_capk']['date_file']},
+                                    'date_update': {'S': log_entry['infoAdicionalPOS']['emv_capk']['date_update']},
+                                    'version': {'N': str(log_entry['infoAdicionalPOS']['emv_capk']['version'])}
+                                }},
+                                'errors': {'M': {
+                                    'date_file': {'S': log_entry['infoAdicionalPOS']['errors']['date_file']},
+                                    'date_update': {'S': log_entry['infoAdicionalPOS']['errors']['date_update']},
+                                    'version': {'N': str(log_entry['infoAdicionalPOS']['errors']['version'])}
+                                }},
+                                'portador': {'S': log_entry['infoAdicionalPOS']['portador']},
+                                'propinaActiva': {'BOOL': log_entry['infoAdicionalPOS']['propinaActiva']},
+                                'serial_number': {'S': log_entry['infoAdicionalPOS']['serial_number']},
+                                'sim_id': {'S': log_entry['infoAdicionalPOS']['sim_id']},
+                                'version_app': {'S': log_entry['infoAdicionalPOS']['version_app']}
+                            }}
+                        }} for log_entry in record['log']
+                    ]}
                 }
             )
             logger.info(f"Registro insertado exitosamente: {record['idPago']}")
