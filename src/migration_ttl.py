@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from botocore.exceptions import ClientError
 
 # Configuración de logging
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Cargar variables de entorno desde un archivo .env
@@ -54,6 +54,7 @@ def timestamp_to_string(timestamp):
     :param timestamp: El timestamp a convertir (en segundos).
     :return: Fecha en formato de cadena 'YYYY-MM-DD HH:MM:SS'.
     """
+    logger.info(f"func timestamp_to_string invoked with param: {timestamp}")
     # Convierte el timestamp a un objeto datetime
     dt_object = datetime.fromtimestamp(timestamp)
     
@@ -66,12 +67,12 @@ def timestamp_to_string(timestamp):
 def calculate_ttl(days=30):
     # Calcular el TTL en segundos desde la época
     ttl_seconds = int(time.time()) + days * 86400  # 86400 segundos en un día
-    # Convertir el valor a una cadena y devolverlo
-    return str(ttl_seconds)
+    logger.info(f"func calculate_ttl ttl_seconds(int): {ttl_seconds}")
+    return ttl_seconds
 
 # Función para habilitar TTL en la nueva tabla
 def enable_ttl():
-    dynamodb_resource.update_time_to_live(
+    dynamodb_client.update_time_to_live(
         TableName=TABLE_NAME,
         TimeToLiveSpecification={
             'Enabled': True,
@@ -139,7 +140,6 @@ def create_backup_table():
 
     return backup_table_name
 
-# Función para migrar datos a la tabla de respaldo
 def migrate_data(backup_table_name):
     logger.info(f"Iniciando migración de datos a la tabla de respaldo: {backup_table_name}")
 
@@ -152,153 +152,31 @@ def migrate_data(backup_table_name):
         logger.info(f"No hay datos para migrar a {backup_table_name}")
         return
 
+    updated_items = []
+
     # Migrar datos uno por uno usando put_item
     for index, record in enumerate(items):
-        logger.info(f"Iniciando migración del ítem {index + 1}/{len(items)}: {record}")
-
         calculate_ttl_value = calculate_ttl()
         calculate_ttl_value_formatter = timestamp_to_string(calculate_ttl_value)
 
-        # Handle missing keys with default values
-        item = {
-            'idPago': {'S': record['idPago']},
-            'attendant': {'S': record['attendant']},
-            'codigoAutorizacion': {'S': record.get('codigoAutorizacion', '')},
-            'datosComercio': {'M': {
-                'ciudadComercio': {'S': record['datosComercio']['ciudadComercio']},
-                'clientAppOrg': {'S': record['datosComercio']['clientAppOrg']},
-                'comunaComercio': {'S': record['datosComercio']['comunaComercio']},
-                'dv': {'S': record['datosComercio']['dv']},
-                'idComercio': {'S': record['datosComercio']['idComercio']},
-                'MCC': {'S': record['datosComercio']['MCC']},
-                'paisComercio': {'S': record['datosComercio']['paisComercio']},
-                'rut': {'S': record['datosComercio']['rut']}
-            }},
-            'datosPago': {'M': {
-                'cuotas': {'S': record['datosPago']['cuotas']},
-                'iva': {'N': str(record['datosPago']['iva'])},
-                'monto': {'N': str(record['datosPago']['monto'])},
-                'neto': {'N': str(record['datosPago']['neto'])},
-                'propina': {'N': str(record['datosPago']['propina'])},
-                'tipoComprobante': {'S': record['datosPago']['tipoComprobante']},
-                'tipoCuota': {'S': record['datosPago']['tipoCuota']},
-                'totalExento': {'N': str(record['datosPago']['totalExento'])}
-            }},
-            'datosSucursal': {'M': {
-                'comunaSucursal': {'S': record['datosSucursal']['comunaSucursal']},
-                'direccionSucursal': {'S': record['datosSucursal']['direccionSucursal']},
-                'idSucursal': {'S': record['datosSucursal']['idSucursal']},
-                'idSucursalOP': {'S': record['datosSucursal']['idSucursalOP']},
-                'nombreSucursal': {'S': record['datosSucursal']['nombreSucursal']},
-                'paisSucursal': {'S': record['datosSucursal']['paisSucursal']},
-                'regionSucursal': {'S': record['datosSucursal']['regionSucursal']}
-            }},
-            'datosTarjeta': {'M': {
-                'abreviatura': {'S': record['datosTarjeta']['abreviatura']},
-                'bin': {'S': record['datosTarjeta']['bin']},
-                'cardEntryMode': {'S': record['datosTarjeta']['cardEntryMode']},
-                'cardSeqNumb': {'S': record['datosTarjeta']['cardSeqNumb']},
-                'conditionCode': {'S': record['datosTarjeta']['conditionCode']},
-                'fourDigits': {'S': record['datosTarjeta']['fourDigits']},
-                'invoiceData': {'S': record['datosTarjeta']['invoiceData']},
-                'marca': {'S': record['datosTarjeta']['marca']},
-                'tipo': {'S': record['datosTarjeta']['tipo']}
-            }},
-            'diaNumSerie': {'S': record.get('diaNumSerie', '')},
-            'diaNumSerieEstado': {'S': record.get('diaNumSerieEstado', '')},
-            'estado': {'S': record['estado']},
-            'fecha': {'S': record['fecha']},
-            'fechaAnulacion': {'NULL': True} if record['fechaAnulacion'] is None else {'S': record['fechaAnulacion']},
-            'fechaDia': {'S': record['fechaDia']},
-            'fechaUTC': {'S': record['fechaUTC']},
-            'idComercio': {'S': record['idComercio']},
-            'idTerminal': {'S': record['idTerminal']},
-            'infoAdicionalPOS': {'M': {
-                'bins': {'M': {
-                    'date_file': {'S': record['infoAdicionalPOS']['bins']['date_file']},
-                    'date_update': {'S': record['infoAdicionalPOS']['bins']['date_update']},
-                    'record_count': {'N': str(record['infoAdicionalPOS']['bins']['record_count'])},
-                    'version': {'N': str(record['infoAdicionalPOS']['bins']['version'])}
-                }},
-                'canal': {'S': record['infoAdicionalPOS']['canal']},
-                'card_entry': {'S': record['infoAdicionalPOS']['card_entry']},
-                'emv_aid': {'M': {
-                    'date_file': {'S': record['infoAdicionalPOS']['emv_aid']['date_file']},
-                    'date_update': {'S': record['infoAdicionalPOS']['emv_aid']['date_update']},
-                    'version': {'N': str(record['infoAdicionalPOS']['emv_aid']['version'])}
-                }},
-                'emv_capk': {'M': {
-                    'date_file': {'S': record['infoAdicionalPOS']['emv_capk']['date_file']},
-                    'date_update': {'S': record['infoAdicionalPOS']['emv_capk']['date_update']},
-                    'version': {'N': str(record['infoAdicionalPOS']['emv_capk']['version'])}
-                }},
-                'errors': {'M': {
-                    'date_file': {'S': record['infoAdicionalPOS']['errors']['date_file']},
-                    'date_update': {'S': record['infoAdicionalPOS']['errors']['date_update']},
-                    'version': {'N': str(record['infoAdicionalPOS']['errors']['version'])}
-                }},
-                'portador': {'S': record['infoAdicionalPOS']['portador']},
-                'propinaActiva': {'BOOL': record['infoAdicionalPOS']['propinaActiva']},
-                'serial_number': {'S': record['infoAdicionalPOS']['serial_number']},
-                'sim_id': {'S': record['infoAdicionalPOS']['sim_id']},
-                'version_app': {'S': record['infoAdicionalPOS']['version_app']}
-            }},
-            'log': {'L': [
-                {'M': {
-                    'idPago': {'S': log_entry['idPago']},
-                    'estado': {'S': log_entry['estado']},
-                    'fechas': {'M': {
-                        'fechaAnulacion': {'NULL': True} if log_entry['fechas']['fechaAnulacion'] is None else {'S': log_entry['fechas']['fechaAnulacion']},
-                        'fechaAPILocal': {'S': log_entry['fechas']['fechaAPILocal']},
-                        'fechaAPIUTC': {'S': log_entry['fechas']['fechaAPIUTC']},
-                        'fechaPOSLocal': {'S': log_entry['fechas']['fechaPOSLocal']},
-                        'fechaPOSUTC': {'S': log_entry['fechas']['fechaPOSUTC']}
-                    }},
-                    'infoAdicionalPOS': {'M': {
-                        'bins': {'M': {
-                            'date_file': {'S': log_entry['infoAdicionalPOS']['bins']['date_file']},
-                            'date_update': {'S': log_entry['infoAdicionalPOS']['bins']['date_update']},
-                            'record_count': {'N': str(log_entry['infoAdicionalPOS']['bins']['record_count'])},
-                            'version': {'N': str(log_entry['infoAdicionalPOS']['bins']['version'])}
-                        }},
-                        'canal': {'S': log_entry['infoAdicionalPOS']['canal']},
-                        'card_entry': {'S': log_entry['infoAdicionalPOS']['card_entry']},
-                        'emv_aid': {'M': {
-                            'date_file': {'S': log_entry['infoAdicionalPOS']['emv_aid']['date_file']},
-                            'date_update': {'S': log_entry['infoAdicionalPOS']['emv_aid']['date_update']},
-                            'version': {'N': str(log_entry['infoAdicionalPOS']['emv_aid']['version'])}
-                        }},
-                        'emv_capk': {'M': {
-                            'date_file': {'S': log_entry['infoAdicionalPOS']['emv_capk']['date_file']},
-                            'date_update': {'S': log_entry['infoAdicionalPOS']['emv_capk']['date_update']},
-                            'version': {'N': str(log_entry['infoAdicionalPOS']['emv_capk']['version'])}
-                        }},
-                        'errors': {'M': {
-                            'date_file': {'S': log_entry['infoAdicionalPOS']['errors']['date_file']},
-                            'date_update': {'S': log_entry['infoAdicionalPOS']['errors']['date_update']},
-                            'version': {'N': str(log_entry['infoAdicionalPOS']['errors']['version'])}
-                        }},
-                        'portador': {'S': log_entry['infoAdicionalPOS']['portador']},
-                        'propinaActiva': {'BOOL': log_entry['infoAdicionalPOS']['propinaActiva']},
-                        'serial_number': {'S': log_entry['infoAdicionalPOS']['serial_number']},
-                        'sim_id': {'S': log_entry['infoAdicionalPOS']['sim_id']},
-                        'version_app': {'S': log_entry['infoAdicionalPOS']['version_app']}
-                    }}
-                }} for log_entry in record['log']
-            ]}
-        }
-
         logger.info(f"ttl calculado: {calculate_ttl_value}")
         logger.info(f"ttl formateado: {calculate_ttl_value_formatter}")
+
+        record[TTL_FIELD_NAME] = {'S': str(calculate_ttl_value)}
+        updated_items.append(record)
+
+        logger.info(f"Iniciando migración del ítem {index + 1}/{len(items)}")
+        
         logger.info(f"item {index + 1} info: {record}")
         
         # Migrar el ítem a la tabla de respaldo
         try:
-            dynamodb_client.put_item(TableName=backup_table_name, Item=item)
+            dynamodb_client.put_item(TableName=backup_table_name, Item=record)
             logger.info(f"Ítem {index + 1}/{len(items)} migrado exitosamente")
         except ClientError as e:
             logger.error(f"Error al migrar el ítem {index + 1}/{len(items)}: {e.response['Error']['Message']}")
             raise
+
 
 # Función principal para realizar la copia de seguridad
 def run_backup():
@@ -306,10 +184,11 @@ def run_backup():
     try:
         backup_table_name = create_backup_table()
         migrate_data(backup_table_name)
-        add_ttl_attribute(backup_table_name)
+        enable_ttl()
         logger.info(f"Copia de seguridad completada exitosamente en la tabla: {backup_table_name}")
     except Exception as e:
         logger.error(f"Error en el proceso de copia de seguridad: {str(e)}")
+
 
 if __name__ == '__main__':
     run_backup()
