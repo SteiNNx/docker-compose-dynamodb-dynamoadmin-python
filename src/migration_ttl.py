@@ -72,15 +72,23 @@ def calculate_ttl(days=30):
 
 # Función para habilitar TTL en la nueva tabla
 def enable_ttl():
-    dynamodb_client.update_time_to_live(
-        TableName=TABLE_NAME,
-        TimeToLiveSpecification={
-            'Enabled': True,
-            'AttributeName': TTL_FIELD_NAME
-        }
-    )
-    
-    print(f"TTL habilitado en la tabla {TABLE_NAME}")
+    # Obtener el estado actual del TTL de la tabla
+    response = dynamodb_client.describe_time_to_live(TableName=TABLE_NAME)
+    ttl_status = response.get('TimeToLiveDescription', {}).get('TimeToLiveStatus')
+
+    # Verificar el estado del TTL
+    if ttl_status == 'ENABLED':
+        print(f"TTL ya está habilitado en la tabla {TABLE_NAME}")
+    else:
+        # Habilitar el TTL si no está activo
+        dynamodb_client.update_time_to_live(
+            TableName=TABLE_NAME,
+            TimeToLiveSpecification={
+                'Enabled': True,
+                'AttributeName': TTL_FIELD_NAME
+            }
+        )
+        print(f"TTL habilitado en la tabla {TABLE_NAME}")
 
 # Función para obtener los elementos de una tabla
 def get_items(table_name):
