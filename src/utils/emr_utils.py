@@ -3,16 +3,16 @@ import os
 from dotenv import load_dotenv
 from botocore.exceptions import ClientError
 
-# Cargar variables de entorno desde un archivo .env
+# Load environment variables from a .env file
 load_dotenv()
 
-# Configuración de variables de entorno
+# Configure environment variables
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID', 'fakemykeyid')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY', 'fakemysecretaccesskey')
 AWS_SESSION_TOKEN = os.getenv('AWS_SESSION_TOKEN', 'fakemysessiontoken')
 AWS_REGION = os.getenv('AWS_REGION', 'us-east-1')
 
-# Inicializa el cliente de EMR
+# Initialize the EMR client
 emr_client = boto3.client(
     'emr',
     region_name=AWS_REGION,
@@ -21,7 +21,9 @@ emr_client = boto3.client(
     aws_session_token=AWS_SESSION_TOKEN
 )
 
-# Método para crear un clúster EMR
+def handle_client_error(error, action, resource_name):
+    print(f"Error while {action} {resource_name}: {error.response['Error']['Message']}")
+
 def create_emr_cluster(name, release_label, instance_type, instance_count, log_uri):
     try:
         response = emr_client.run_job_flow(
@@ -43,7 +45,7 @@ def create_emr_cluster(name, release_label, instance_type, instance_count, log_u
                         'InstanceCount': instance_count - 1,
                     }
                 ],
-                'Ec2KeyName': 'your-ec2-key-name',
+                'Ec2KeyName': 'your-ec2-key-name',  # Replace with your actual EC2 key name
                 'KeepJobFlowAliveWhenNoSteps': True,
                 'TerminationProtected': False,
             },
@@ -53,37 +55,33 @@ def create_emr_cluster(name, release_label, instance_type, instance_count, log_u
         )
         return response['JobFlowId']
     except ClientError as e:
-        print(f"Error al crear el clúster EMR {name}: {e.response['Error']['Message']}")
+        handle_client_error(e, "create EMR cluster", name)
         return None
 
-# Método para terminar un clúster EMR
 def terminate_emr_cluster(cluster_id):
     try:
         response = emr_client.terminate_job_flows(JobFlowIds=[cluster_id])
         return response
     except ClientError as e:
-        print(f"Error al terminar el clúster EMR {cluster_id}: {e.response['Error']['Message']}")
+        handle_client_error(e, "terminate EMR cluster", cluster_id)
         return None
 
-# Método para listar clústeres EMR
 def list_emr_clusters():
     try:
         response = emr_client.list_clusters(ClusterStates=['STARTING', 'BOOTSTRAPPING', 'RUNNING', 'WAITING'])
         return response['Clusters']
     except ClientError as e:
-        print(f"Error al listar los clústeres EMR: {e.response['Error']['Message']}")
+        handle_client_error(e, "list EMR clusters", "")
         return []
 
-# Método para describir un clúster EMR
 def describe_emr_cluster(cluster_id):
     try:
         response = emr_client.describe_cluster(ClusterId=cluster_id)
         return response['Cluster']
     except ClientError as e:
-        print(f"Error al describir el clúster EMR {cluster_id}: {e.response['Error']['Message']}")
+        handle_client_error(e, "describe EMR cluster", cluster_id)
         return None
 
-# Método para agregar un paso a un clúster EMR
 def add_step_to_emr_cluster(cluster_id, name, action_on_failure, hadoop_jar_step):
     try:
         response = emr_client.add_job_flow_steps(
@@ -98,35 +96,59 @@ def add_step_to_emr_cluster(cluster_id, name, action_on_failure, hadoop_jar_step
         )
         return response['StepIds']
     except ClientError as e:
-        print(f"Error al agregar el paso al clúster EMR {cluster_id}: {e.response['Error']['Message']}")
+        handle_client_error(e, "add step to EMR cluster", cluster_id)
         return None
 
-# Método para eliminar un paso de un clúster EMR
-def remove_step_from_emr_cluster(cluster_id, step_id):
-    try:
-        response = emr_client.remove_job_flow_steps(
-            JobFlowId=cluster_id,
-            StepIds=[step_id]
-        )
-        return response
-    except ClientError as e:
-        print(f"Error al eliminar el paso {step_id} del clúster EMR {cluster_id}: {e.response['Error']['Message']}")
-        return None
-
-# Método para describir los pasos de un clúster EMR
 def describe_emr_steps(cluster_id, step_ids):
     try:
         response = emr_client.describe_step(JobFlowId=cluster_id, StepId=step_ids)
         return response['Step']
     except ClientError as e:
-        print(f"Error al describir el paso {step_ids} del clúster EMR {cluster_id}: {e.response['Error']['Message']}")
+        handle_client_error(e, "describe EMR step", step_ids)
         return None
 
-# Método para listar los pasos de un clúster EMR
 def list_emr_steps(cluster_id):
     try:
         response = emr_client.list_steps(ClusterId=cluster_id)
         return response['Steps']
     except ClientError as e:
-        print(f"Error al listar los pasos del clúster EMR {cluster_id}: {e.response['Error']['Message']}")
+        handle_client_error(e, "list steps of EMR cluster", cluster_id)
         return []
+
+def main():
+    # Create an EMR cluster
+    cluster_id = create_emr_cluster("TestCluster", "emr-6.2.0", "m5.xlarge", 3, "s3://your-log-uri/")
+    if cluster_id:
+        print(f"EMR Cluster created with ID: {cluster_id}")
+        
+        # List EMR clusters
+        clusters = list_emr_clusters()
+        print(f"Active EMR Clusters: {clusters}")
+
+        # Describe the created cluster
+        cluster_description = describe_emr_cluster(cluster_id)
+        print(f"Cluster Description: {cluster_description}")
+
+        # Add a step to the cluster
+        step_ids = add_step_to_emr_cluster(cluster_id, "SampleStep", "TERMINATE_CLUSTER", {
+            'Jar': 'command-runner.jar',
+            'Args': ['spark-submit', '--deploy-mode', 'cluster', 's3://your-script-location/your-script.py']
+        })
+        if step_ids:
+            print(f"Added steps: {step_ids}")
+
+            # Describe the added steps
+            step_description = describe_emr_steps(cluster_id, step_ids[0])
+            print(f"Step Description: {step_description}")
+
+            # List steps of the cluster
+            steps = list_emr_steps(cluster_id)
+            print(f"Steps in Cluster {cluster_id}: {steps}")
+
+        # Terminate the cluster
+        terminate_response = terminate_emr_cluster(cluster_id)
+        if terminate_response:
+            print(f"Terminated EMR Cluster with ID: {cluster_id}")
+
+if __name__ == "__main__":
+    main()
